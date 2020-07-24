@@ -8,4 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-I am a Computational Social Scientist pursuing PhD in Computer Science at the University fo Minnesota under [Jaideep_Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en).
+I am a Computational Social Scientist pursuing PhD in Computer Science at the University of Minnesota under [Jaideep_Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en).
+
+(The website is under construction.)
