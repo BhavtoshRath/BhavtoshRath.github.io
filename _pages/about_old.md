@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Bhavtosh's home page"
+title: "Bhavtosh Rath"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -14,5 +14,7 @@ My current research explores the role of interpersonal trust and user credibilit
 
 I have also worked in collaboration with [MCAL](https://mcal.umn.edu/) in the Hubbard School of Journalism and Mass Communication at the University of Minnesota.
 
+
+> Creativity is seeing the same thing but thinking differently - A.P.J Abdul Kalam
 
 (Note: This website is under construction.)

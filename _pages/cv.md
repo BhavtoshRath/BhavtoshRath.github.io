@@ -17,12 +17,12 @@ Education
 
 Work experience
 ======
-* Summer 2015: Research Assistant
+* Target: AI Scientist, intern (June, 20 - Aug, 20)
   * Github University
   * Duties included: Tagging issues
   * Supervisor: Professor Git
 
-* Fall 2015: Research Assistant
+* Honeywell: Data Scientist, intern (June, 18 - Aug, 18)
   * Github University
   * Duties included: Merging pull requests
   * Supervisor: Professor Hub
@@ -57,3 +57,5 @@ Teaching
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+
+
