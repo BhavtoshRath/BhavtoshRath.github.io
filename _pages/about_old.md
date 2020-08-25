@@ -17,4 +17,4 @@ I have also worked in collaboration with [MCAL](https://mcal.umn.edu/) in the Hu
 
 > Creativity is seeing the same thing but thinking differently - A.P.J Abdul Kalam
 
-(Note: This website is under construction.)
+(Last updated: 8/25/2020)
