@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -11,11 +10,14 @@ redirect_from:
 
 Education
 ======
-* B.S. in Computer Science, College of Engineering & Technology, Bhubaneswar, India, 2012
-* M.S. in Computer Science, University of Minnesota, 2016
-* Ph.D in Computer Science, University of Minnesota, 2020 (Expected)
 
-Work experience
+| Degree | Year| College                                                              |
+| --------         | ------ | ------------------------------------------------------------ |
+| B.Tech in Computer Science   | 2008-2012   | College of Engineering & Technology, Bhubaneswar                          |
+| M.S. in Computer Science    | 2014-2016    | University of Minnesota                          |
+| Ph.D in Computer Science     | 2016-2020   | University of Minnesota   
+
+Work Experience
 ======
 * Target: AI Scientist, intern (June, 20 - Aug, 20)
   * Github University
