@@ -11,8 +11,10 @@ tags:
 categories:
   - Research
 header:
-  teaser: "/images/llm-teaser.jpg"
+  teaser: "/images/blog/llm-post/llm-teaser.jpg"
 ---
+
+![LLM Architecture Overview](/images/blog/llm-post/llm-architecture.png){: .align-right width="300px"}
 
 Large Language Models (LLMs) have revolutionized the way we interact with technology and understand human language. As a computational social scientist, I find the intersection of these models with social behavior particularly fascinating.
 
@@ -41,6 +43,16 @@ From a technical perspective, LLMs are fascinating because they:
 - Leverage massive amounts of training data
 - Employ sophisticated fine-tuning techniques
 
+{% include video id="zjkBMFhNj_g" provider="youtube" %}
+
+*Watch this excellent explanation of how transformers work in LLMs*
+
+## Visualizing LLM Components
+
+![Transformer Architecture](/images/blog/llm-post/transformer-architecture.png){: .align-center}
+
+The above diagram shows the key components of a transformer model, which is the foundation of modern LLMs. Notice how the attention mechanism allows the model to focus on different parts of the input sequence.
+
 ## Future Directions
 
 The intersection of LLMs and computational social science opens up exciting research opportunities:
@@ -50,8 +62,16 @@ The intersection of LLMs and computational social science opens up exciting rese
 3. Developing frameworks for responsible AI deployment
 4. Understanding the societal implications of AI adoption
 
+{% include video id="PXMx6cTb5U4" provider="youtube" %}
+
+*This video discusses the ethical considerations in AI development*
+
 ## Conclusion
 
 As we continue to develop and deploy LLMs, it's crucial to maintain a multidisciplinary perspective that includes insights from social science, computer science, and ethics. This holistic approach will help us create more beneficial and responsible AI systems.
 
-*What are your thoughts on the social implications of LLMs? Feel free to share in the comments below!* 
+![AI Ethics Framework](/images/blog/llm-post/ai-ethics.png){: .align-right width="300px"}
+
+The framework above illustrates how different disciplines contribute to responsible AI development.
+
+*What are your thoughts on the social implications of LLMs? Feel free to share in the comments below!*
