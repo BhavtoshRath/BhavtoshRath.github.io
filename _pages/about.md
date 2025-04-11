@@ -22,14 +22,3 @@ Check out my latest thoughts and research on [my blog](/blog/), where I write ab
 >
 > - **2/8/21:**  Paper accepted to PAKDD, 21.
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-######  (Last updated: 3/12/2021)
-
