@@ -1,23 +1,16 @@
 ---
-permalink: /about-old/
-
+permalink: /
+title: "BhavtoshRath"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
-  - /about-old/
-  - /about-old.html
+  - /about/
+  - /about.html
 ---
 
-I am a Senior AI Scientist at Target Corporation, Minneapolis (USA) working in the AI Sciences Personalization & Search team. 
-I received my PhD in Computer Science from the University of Minnesota in 2020. My research interests are in the areas of recommender systems, 
-social network analysis and applied machine learning. I have published research papers in referred journals and conferences.
+I am a Computational Social Scientist pursuing PhD in Computer Science at the University of Minnesota under [Jaideep_Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en).
 
-My PhD was under the advisorship of [Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en)
- and my thesis was titled **Epidemiology Inspired Framework for False Information Mitigation in Social Networks** 
- ([Dissertation](https://conservancy.umn.edu/handle/11299/218687)).
-
-I have also worked in collaboration with [MCAL](https://mcal.umn.edu/) in the Hubbard School of Journalism and Mass Communication 
-at the University of Minnesota.
+(The website is under construction.)
 
 ## Recent Blog Posts
 
