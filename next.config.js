@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/BhavtoshRath.github.io',
-  assetPrefix: '/BhavtoshRath.github.io',
+  basePath: '/bhavtoshrath.github.io',
+  assetPrefix: '/bhavtoshrath.github.io',
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig
