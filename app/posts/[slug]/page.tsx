@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default async function BlogPost(props: PageProps) {
+export default async function BlogPost({ params }: Awaited<PageProps>) {
   const { params } = props
   
   try {
