@@ -2,6 +2,14 @@ import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 
+// Define the correct types for the page props
+type Props = {
+  params: {
+    slug: string
+  }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
 // Mark the params as a Promise
 export async function generateStaticParams() {
   const paths = await getAllPostIds() // Add await here if getAllPostIds is async
@@ -9,11 +17,7 @@ export async function generateStaticParams() {
 }
 
 // Mark the component as async and properly handle the params
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default async function BlogPost({ params }: Props) {
   try {
     // Ensure params.slug is properly awaited
     const slug = await Promise.resolve(params.slug)
