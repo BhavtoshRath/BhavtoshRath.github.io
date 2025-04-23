@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Enable static exports
-  basePath: '/bhavtoshrath.github.io',
-  images: {
-    unoptimized: true,
-  },
+  output: 'export',
+  basePath: '/BhavtoshRath.github.io',
+  assetPrefix: '/BhavtoshRath.github.io',
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
