@@ -79,7 +79,7 @@ export default async function BlogPost({
         </article>
       </div>
     )
-  } catch (error) {
+  } catch {
     notFound()
   }
 } 

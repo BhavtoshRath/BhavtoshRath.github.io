@@ -8,7 +8,7 @@ export default function Home() {
     <div className="py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-          Bhavtosh Rath's Blog
+          Bhavtosh Rath&apos;s Blog
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Exploring AI research and trends.

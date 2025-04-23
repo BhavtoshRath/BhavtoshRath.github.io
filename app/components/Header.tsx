@@ -2,11 +2,8 @@
 
 import Link from 'next/link'
 import ThemeToggle from './ThemeToggle'
-import { useState } from 'react'
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">
