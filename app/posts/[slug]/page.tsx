@@ -2,14 +2,18 @@ import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 
-// Use the built-in Next.js types
-type PageProps = {
-  params: { slug: string }
+interface Params {
+  slug: string;
 }
 
-export default async function BlogPost({ params }: PageProps) {
+interface Props {
+  params: Promise<Params>;
+}
+
+export default async function BlogPost({ params }: Props) {
   try {
-    const post = await getPostData(params.slug)
+    const resolvedParams = await params;
+    const post = await getPostData(resolvedParams.slug)
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">

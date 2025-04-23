@@ -54,7 +54,7 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
   const matterResult = matter(fileContents)
   
   // Remove the iframe from the markdown content as we'll render it separately
-  const contentWithoutIframe = matterResult.content.replace(/<div class="aspect-w-16.*?<\/div>/s, '')
+  const contentWithoutIframe = matterResult.content.replace(/<div class="aspect-w-16[\s\S]*?<\/div>/, '')
   
   const processedContent = await remark()
     .use(html)
