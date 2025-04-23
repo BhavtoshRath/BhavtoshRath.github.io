@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: Awaited<PageProps>) {
-  const { params } = props
+  const post = await getPostData(params.slug)
   
   try {
     const post = await getPostData(params.slug)
