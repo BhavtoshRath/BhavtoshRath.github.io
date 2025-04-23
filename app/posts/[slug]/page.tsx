@@ -2,21 +2,14 @@ import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 
-// Define the correct types for the page props
-type Props = {
+// Use the built-in Next.js types
+type PageProps = {
   params: { slug: string }
-  searchParams: Record<string, string | string[] | undefined>
 }
 
-export async function generateStaticParams() {
-  const paths = await getAllPostIds()
-  return paths
-}
-
-// Remove Awaited and use the Props type directly
-export default async function BlogPost(props: Props) {
+export default async function BlogPost({ params }: PageProps) {
   try {
-    const post = await getPostData(props.params.slug)
+    const post = await getPostData(params.slug)
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -81,4 +74,9 @@ export default async function BlogPost(props: Props) {
   } catch {
     notFound()
   }
+}
+
+export async function generateStaticParams() {
+  const paths = await getAllPostIds()
+  return paths
 } 
