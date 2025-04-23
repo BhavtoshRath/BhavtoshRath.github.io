@@ -2,17 +2,11 @@ import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 
-interface PageProps {
+export default async function BlogPost({
+  params,
+}: {
   params: { slug: string }
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
-export async function generateStaticParams() {
-  const paths = await getAllPostIds()
-  return paths
-}
-
-export default async function BlogPost({ params }: Awaited<PageProps>) {
+}) {
   try {
     const post = await getPostData(params.slug)
 
@@ -79,4 +73,9 @@ export default async function BlogPost({ params }: Awaited<PageProps>) {
   } catch {
     notFound()
   }
+}
+
+export async function generateStaticParams() {
+  const paths = await getAllPostIds()
+  return paths
 } 
