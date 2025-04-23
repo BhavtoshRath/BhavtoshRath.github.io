@@ -23,6 +23,7 @@ Next.js is a powerful framework frameworkframeworkframework for building React a
 
 ## Why Choose Next.js?
 
+
 Next.js offers several key advantages:
 
 ### 1. Server-Side Rendering
