@@ -2,13 +2,21 @@ import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 
-export default async function BlogPost({
-  params,
-}: {
+// Define the correct types for the page props
+type Props = {
   params: { slug: string }
-}) {
+  searchParams: Record<string, string | string[] | undefined>
+}
+
+export async function generateStaticParams() {
+  const paths = await getAllPostIds()
+  return paths
+}
+
+// Remove Awaited and use the Props type directly
+export default async function BlogPost(props: Props) {
   try {
-    const post = await getPostData(params.slug)
+    const post = await getPostData(props.params.slug)
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -73,9 +81,4 @@ export default async function BlogPost({
   } catch {
     notFound()
   }
-}
-
-export async function generateStaticParams() {
-  const paths = await getAllPostIds()
-  return paths
 } 
