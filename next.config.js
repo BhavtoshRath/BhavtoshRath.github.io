@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',  // Enable static exports
-  basePath: '',
+  basePath: '/BhavtoshRath.github.io',
   images: {
     unoptimized: true,
   },
