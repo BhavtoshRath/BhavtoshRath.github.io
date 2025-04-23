@@ -29,6 +29,3 @@ jobs:
           branch: gh-pages
           folder: out
           clean: true
-
-permissions:
-  contents: write
