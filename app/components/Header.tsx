@@ -13,7 +13,7 @@ export default function Header() {
             href="/" 
             className="text-2xl font-bold gradient-text"
           >
-            My Blog
+            {/* Bhavtosh Rath&apos;s blog website */}
           </Link>
           
           <div className="flex items-center space-x-8">

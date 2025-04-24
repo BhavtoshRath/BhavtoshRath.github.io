@@ -18,7 +18,7 @@ export default function AboutPage() {
           </div>
           <h1 className="text-4xl font-bold mb-4 gradient-text">About Me</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            AI Researcher & Software Engineer
+            Machine Learning Scientist
           </p>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
             GitHub
           </a>
           <a 
-            href="https://linkedin.com/in/yourprofile" 
+            href="www.linkedin.com/in/bhavtosh-rath" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -118,7 +118,7 @@ export default function AboutPage() {
             LinkedIn
           </a>
           <a 
-            href="mailto:your.email@example.com" 
+            href="mailto:rathbhavosh3003@gmail.com" 
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             Email

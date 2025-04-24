@@ -7,7 +7,7 @@ import { ThemeProvider } from './components/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'My Personal Blog',
+  title: 'Bhavtosh Rath&apos;s blog website',
   description: 'A modern blog built with Next.js and TypeScript',
 }
 
