@@ -29,3 +29,6 @@ jobs:
           branch: gh-pages
           folder: out
           clean: true
+
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
