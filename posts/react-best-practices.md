@@ -9,6 +9,8 @@ author: 'Alex Johnson'
 
 React has become the go-to library for building user interfaces. Let's explore some best practices and patterns that will help you write better React code.
 
+![React Component Hierarchy](/images/react-component-hierarchy.png)
+
 ## 1. Functional Components
 
 Modern React emphasizes the use of functional components with hooks:
