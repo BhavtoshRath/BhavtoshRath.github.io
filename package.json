@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "rm -rf out && next build && touch out/.nojekyll && gh-pages -d out -t true"
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
