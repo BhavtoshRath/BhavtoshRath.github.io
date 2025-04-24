@@ -26,12 +26,12 @@ export default function AboutPage() {
       {/* Bio Section */}
       <div className="prose dark:prose-invert mx-auto mb-12">
         <p className="text-lg leading-relaxed mb-6">
-          Hello! I'm Bhavtosh Rath, an AI researcher and software engineer passionate about pushing the boundaries 
+          Hello! I&apos;m Bhavtosh Rath, an AI researcher and software engineer passionate about pushing the boundaries 
           of artificial intelligence and its applications. With a background in computer science and machine learning, 
           I focus on developing innovative solutions that bridge the gap between theoretical AI and practical applications.
         </p>
         <p className="text-lg leading-relaxed">
-          Currently, I'm exploring advanced machine learning techniques and their applications in real-world scenarios. 
+          Currently, I&apos;m exploring advanced machine learning techniques and their applications in real-world scenarios. 
           Through this blog, I share my insights, experiences, and discoveries in AI, software development, and technology.
         </p>
       </div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 gradient-text">Get in Touch</h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I'm always interested in collaborating on innovative projects and research opportunities.
+          I&apos;m always interested in collaborating on innovative projects and research opportunities.
         </p>
         <div className="flex justify-center space-x-6">
           <a 
