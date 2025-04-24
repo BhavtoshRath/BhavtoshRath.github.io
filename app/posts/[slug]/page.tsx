@@ -30,11 +30,10 @@ export default async function BlogPost({ params }: Props) {
                   })}
                 </time>
                 <span className="text-gray-500 dark:text-gray-400">•</span>
-                <span className="text-gray-600 dark:text-gray-400">5 min read</span>
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight gradient-text">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight tracking-tight gradient-text">
               {post.title}
             </h1>
 

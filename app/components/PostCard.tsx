@@ -10,7 +10,7 @@ export default function PostCard({ post }: { post: PostData }) {
             <div className="inline-block px-3 py-1 mb-2 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-full">
               Blog Post
             </div>
-            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+            <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
               {post.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 line-clamp-2">
