@@ -1,8 +1,8 @@
-import PostCard from './components/PostCard'
+import BlogListWithSearch from './components/BlogListWithSearch'
 import { getSortedPostsData } from '../lib/posts'
 
 export default function Home() {
-  const posts = getSortedPostsData()
+  const posts = getSortedPostsData();
 
   return (
     <div className="py-12">
@@ -19,11 +19,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
           Recent Posts
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map(post => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
+        <BlogListWithSearch posts={posts} />
       </div>
     </div>
   )

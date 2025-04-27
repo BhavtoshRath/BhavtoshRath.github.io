@@ -4,7 +4,7 @@ import { PostData } from '@/lib/posts'
 export default function PostCard({ post }: { post: PostData }) {
   return (
     <Link href={`/posts/${post.id}`}>
-      <article className="card-hover bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+      <article className="card-hover bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
         <div className="flex flex-col h-full">
           <div className="mb-4">
             <div className="inline-block px-3 py-1 mb-2 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-full">
