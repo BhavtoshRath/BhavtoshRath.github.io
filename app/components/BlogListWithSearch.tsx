@@ -1,8 +1,13 @@
 "use client";
 import { useState } from "react";
 import PostCard from "./PostCard";
+import type { PostData } from "@/lib/posts";
 
-export default function BlogListWithSearch({ posts }) {
+interface BlogListWithSearchProps {
+  posts: PostData[];
+}
+
+export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
   const [query, setQuery] = useState("");
   const filteredPosts = posts.filter(
     post =>
