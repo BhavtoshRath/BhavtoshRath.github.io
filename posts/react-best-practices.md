@@ -3,6 +3,7 @@ title: 'React Best Practices and Patterns'
 date: '2024-03-23'
 excerpt: 'Discover the most effective patterns and practices for building React applications'
 author: 'Alex Johnson'
+categories: ['React', 'Best Practices', 'Web Development']
 ---
 
 # React Best Practices and Patterns
