@@ -14,6 +14,7 @@ export interface PostData {
   author: string
   youtube?: string
   contentHtml?: string
+  categories?: string[]
 }
 
 export async function getAllPostIds() {
@@ -35,7 +36,13 @@ export function getSortedPostsData(): PostData[] {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; excerpt: string; author: string })
+      ...(matterResult.data as { 
+        title: string
+        date: string
+        excerpt: string
+        author: string
+        categories?: string[]
+      })
     }
   })
 
@@ -69,7 +76,8 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
       date: string
       excerpt: string
       author: string
-      youtube?: string 
+      youtube?: string
+      categories?: string[]
     })
   }
 } 

@@ -7,7 +7,14 @@ export default function Home() {
   return (
     <div className="py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text"> */}
+        {/* <h1 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text"> */}
+        {/* <h1 className="text-4xl md:text-5xl font-bold mb-8" > */}
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-500">
+        {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text animate-fadeIn"> */}
+
+
+
           Bhavtosh Rath&apos;s Blog
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

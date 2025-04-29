@@ -3,6 +3,7 @@ title: 'Getting Started with Next.js'
 date: '2024-03-21'
 excerpt: 'Learn why Next.js is becoming the go-to choice for modern web development and how to get started.'
 author: 'John Doe'
+categories: ['React', 'Best Practices', 'Web Development']
 youtube: 'https://www.youtube.com/watch?v=Sklc_fQBmcs'
 ---
 

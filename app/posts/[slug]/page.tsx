@@ -1,6 +1,8 @@
 import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
+import CategoryTag from '@/app/components/CategoryTag'
+import Link from 'next/link'
 
 interface Params {
   slug: string;
@@ -33,7 +35,7 @@ export default async function BlogPost({ params }: Props) {
               </div>
             </div>
             
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight tracking-tight gradient-text">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight tracking-tight text-blue-500">
               {post.title}
             </h1>
 
@@ -47,6 +49,15 @@ export default async function BlogPost({ params }: Props) {
                   <p className="text-sm text-gray-600 dark:text-gray-400">Author</p>
                 </div>
               </div>
+            </div>
+
+            {/* Add categories section */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {post.categories?.map(category => (
+                <Link key={category} href={`/categories#${category}`}>
+                  <CategoryTag name={category} />
+                </Link>
+              ))}
             </div>
           </header>
 
