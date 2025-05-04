@@ -31,7 +31,6 @@ export default async function BlogPost({ params }: Props) {
                     day: 'numeric'
                   })}
                 </time>
-                <span className="text-gray-500 dark:text-gray-400">•</span>
               </div>
             </div>
             
