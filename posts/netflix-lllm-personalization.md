@@ -1,9 +1,9 @@
 ---
 title: 'How Netflix Uses Large Language Models for Personalization'
-date: '2024-05-10'
-excerpt: 'Explore how Netflix leverages LLMs to deliver highly personalized recommendations and user experiences.'
-author: 'Your Name'
-categories: ['Personalization', 'LLM']
+date: '2024-05-03'
+excerpt: 'Summarizing how Netflix leverages LLMs to deliver highly personalized recommendations and user experiences.'
+author: 'Bhavtosh Rath'
+categories: ['Personalization', 'LLM', 'Netflix']
 ---
 
 Here is a summary of an interesting blog post I recently read about how Netflix is using a foundation model for its personalized recommendation system. As a scientist who has worked in the item personalization team at Target, I believe this is the future of every platform that builds recommendation models.
