@@ -20,5 +20,7 @@ In terms of data management, Netflix has a vast and growing user base of over 30
 
 Ultimately, this shift toward a foundation model aims to address both current and future needs for Netflix’s recommendation system. By centralizing user preference learning, scaling up data and model parameters, and employing advanced training techniques, Netflix seeks to create a system that is adaptable and efficient. This ensures they can continue innovating while managing resources effectively, providing highly personalized and relevant content at scale.
 
+Details can be found [here](https://netflixtechblog.com/foundation-model-for-personalized-recommendation-1a0bd8e02d39a).
+
 ---
 
