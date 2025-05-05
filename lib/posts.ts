@@ -15,6 +15,7 @@ export interface PostData {
   youtube?: string
   contentHtml?: string
   categories?: string[]
+  readTime?: string
 }
 
 export async function getAllPostIds() {
@@ -42,7 +43,9 @@ export function getSortedPostsData(): PostData[] {
         excerpt: string
         author: string
         categories?: string[]
-      })
+        readTime?: string
+      }),
+      readTime: matterResult.data.readTime || ''
     }
   })
 
@@ -78,6 +81,8 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
       author: string
       youtube?: string
       categories?: string[]
-    })
+      readTime?: string
+    }),
+    readTime: matterResult.data.readTime || ''
   }
 } 

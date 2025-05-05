@@ -3,6 +3,7 @@ title: 'From Chatbots to Super Assistants: What Makes AI Agents Truly Intelligen
 date: '2024-03-21'
 excerpt: 'Welcome to my first blog blog blog'
 author: 'Bhavtosh Rath'
+readTime: '2 mins'
 ---
 
 Imagine a world where your digital assistant doesn’t just answer your questions — it also books your flights, sends emails, or analyzes live data without a single manual prompt. This isn’t science fiction anymore. It’s the rapidly evolving reality of AI agents.

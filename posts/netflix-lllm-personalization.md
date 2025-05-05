@@ -4,6 +4,7 @@ date: '2025-05-03'
 excerpt: 'Summarizing how Netflix leverages in-house LLMs to deliver highly personalized recommendations.'
 author: 'Bhavtosh Rath'
 categories: ['Personalization', 'LLM', 'Netflix']
+readTime: '5 mins'
 ---
 
 Here is a summary of an interesting blog post I recently read about how Netflix is using a foundation model for its personalized recommendation system. As a scientist who has worked in the item personalization team at Target, I believe this is the future of every platform that builds recommendation models.

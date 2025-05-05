@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { PostData } from '@/lib/posts'
 
 export default function PostCard({ post }: { post: PostData }) {
@@ -7,17 +6,6 @@ export default function PostCard({ post }: { post: PostData }) {
     <Link href={`/posts/${post.id}`}>
       <article className="relative bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-500">
         <div className="absolute top-0 left-0 w-full h-1 rounded-t-xl bg-gradient-to-r from-blue-500 to-indigo-500" />
-        {post.coverImage && (
-          <div className="mb-4">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              width={400}
-              height={200}
-              className="rounded-lg object-cover w-full h-40"
-            />
-          </div>
-        )}
         <div className="flex flex-wrap gap-2 mb-2">
           {post.categories?.map(category => (
             <span key={category} className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-semibold">
