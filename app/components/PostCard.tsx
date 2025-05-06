@@ -32,10 +32,11 @@ export default function PostCard({ post }: { post: PostData }) {
           )}
         </div>
         <div className="relative group">
-          <p className="text-gray-600 dark:text-gray-300 line-clamp-2 group-hover:line-clamp-none transition-all duration-200">
+          <p className="text-gray-600 dark:text-gray-300 line-clamp-2 group-hover:opacity-0 transition-all duration-200">
             {post.excerpt}
           </p>
-          <span className="pointer-events-none absolute left-0 top-full z-10 mt-2 w-64 rounded bg-gray-900 text-white text-sm px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg">
+          {/* Larger tooltip box overlaps the excerpt */}
+          <span className="pointer-events-none absolute inset-0 min-w-[320px] min-h-[100px] w-auto h-auto rounded bg-gray-900/90 text-white text-base px-4 py-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg flex items-center whitespace-pre-line leading-relaxed z-20">
             {post.excerpt}
           </span>
         </div>
