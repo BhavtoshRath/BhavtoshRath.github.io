@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import VisitorMap from './VisitorMap';
 
 export default function Footer() {
   return (
@@ -42,6 +43,9 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400">
           <p>© {new Date().getFullYear()} My Blog. All rights reserved.</p>
+          <div className="mt-6 flex justify-center">
+            <VisitorMap />
+          </div>
         </div>
       </div>
     </footer>
