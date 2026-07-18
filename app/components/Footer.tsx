@@ -29,10 +29,12 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 gradient-text">Connect</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Twitter
-              </a>
-              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a
+                href="https://github.com/BhavtoshRath"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
                 GitHub
               </a>
             </div>
