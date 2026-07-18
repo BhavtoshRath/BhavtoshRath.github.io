@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import PostCard from "./PostCard";
+import FeaturedPost from "./FeaturedPost";
+import PostListItem from "./PostListItem";
 import type { PostData } from "@/lib/posts";
 
 interface BlogListWithSearchProps {
@@ -9,11 +10,14 @@ interface BlogListWithSearchProps {
 
 export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
   const [query, setQuery] = useState("");
+  const isSearching = query.trim().length > 0;
   const filteredPosts = posts.filter(
     post =>
       post.title.toLowerCase().includes(query.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(query.toLowerCase())
   );
+
+  const [featuredPost, ...remainingPosts] = posts;
 
   return (
     <>
@@ -26,15 +30,33 @@ export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
           className="w-full p-3 rounded border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map(post => (
-            <PostCard key={post.id} post={post} />
-          ))
+
+      {isSearching ? (
+        filteredPosts.length > 0 ? (
+          <div className="max-w-3xl mx-auto">
+            {filteredPosts.map(post => (
+              <PostListItem key={post.id} post={post} />
+            ))}
+          </div>
         ) : (
-          <p className="col-span-full text-center text-gray-500">No posts found.</p>
-        )}
-      </div>
+          <p className="text-center text-gray-500">No posts found.</p>
+        )
+      ) : featuredPost ? (
+        <>
+          <div className="max-w-3xl mx-auto">
+            <FeaturedPost post={featuredPost} />
+          </div>
+          {remainingPosts.length > 0 && (
+            <div className="max-w-3xl mx-auto">
+              {remainingPosts.map(post => (
+                <PostListItem key={post.id} post={post} />
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <p className="text-center text-gray-500">No posts found.</p>
+      )}
     </>
   );
-} 
+}
