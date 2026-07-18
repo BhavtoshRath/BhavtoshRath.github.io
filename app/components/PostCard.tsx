@@ -14,7 +14,7 @@ export default function PostCard({ post }: { post: PostData }) {
           ))}
         </div>
         <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white flex items-center gap-2">
-          <span>📺</span> {post.title}
+          {post.title}
         </h3>
         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
           <time>
