@@ -18,7 +18,7 @@ export default function AboutPage() {
           </div>
           <h1 className="text-4xl font-bold mb-4 gradient-text">About Me</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Machine Learning Scientist
+            Machine Learning Scientist &amp; AI Engineer
           </p>
         </div>
       </div>
@@ -26,13 +26,45 @@ export default function AboutPage() {
       {/* Bio Section */}
       <div className="prose dark:prose-invert mx-auto mb-12">
         <p className="text-lg leading-relaxed mb-6">
-          Hello! I&apos;m Bhavtosh Rath, an AI researcher and software engineer passionate about pushing the boundaries 
-          of artificial intelligence and its applications. With a background in computer science and machine learning, 
-          I focus on developing innovative solutions that bridge the gap between theoretical AI and practical applications.
+          I&apos;m a Machine Learning Scientist and AI Engineer with over 11 years of experience building
+          intelligent systems that solve complex, real-world problems. My work sits at the intersection of
+          machine learning, large-scale data systems, and product strategy, where I enjoy turning research
+          ideas into production systems that create measurable business and user impact.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          My core expertise is in recommendation systems, personalization, search and ranking, experimentation,
+          and real-time decision-making. Throughout my career, I&apos;ve designed and deployed end-to-end machine
+          learning solutions&mdash;from data pipelines and feature engineering to model training, online
+          inference, experimentation, and continuous optimization. I enjoy working on problems where scale,
+          ambiguity, and user experience intersect.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          Most recently, I&apos;ve been expanding my focus into Generative AI and Agentic AI. I&apos;m particularly
+          interested in building AI systems that can reason, use tools, retrieve knowledge, and collaborate
+          across multiple agents to solve complex tasks. I&apos;ve been developing applications using LLMs,
+          Retrieval-Augmented Generation (RAG), LangGraph, tool calling, vector databases, and modern AI
+          orchestration frameworks to create practical enterprise AI assistants and copilots.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          I hold a Ph.D. in Computer Science and have spent my career combining deep technical expertise with a
+          strong product mindset. I enjoy collaborating with cross-functional teams, mentoring engineers and
+          data scientists, and translating business problems into scalable AI solutions.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          What motivates me most is building products that people genuinely find useful. Whether it&apos;s
+          improving personalization for millions of users, designing intelligent recommendation systems, or
+          creating the next generation of AI-powered applications, I&apos;m driven by solving challenging
+          problems with elegant, data-driven solutions.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          I&apos;m also passionate about the rapidly evolving AI ecosystem and continuously explore new ideas in
+          agentic systems, foundation models, and AI-native product development. I believe we&apos;re only at the
+          beginning of what&apos;s possible with modern AI, and I&apos;m excited to help shape that future.
         </p>
         <p className="text-lg leading-relaxed">
-          Currently, I&apos;m exploring advanced machine learning techniques and their applications in real-world scenarios. 
-          Through this blog, I share my insights, experiences, and discoveries in AI, software development, and technology.
+          Outside of work, I enjoy spending time with family, cooking, playing guitar, singing, and exploring
+          new technologies. I believe the best engineers are lifelong learners, and I&apos;m always looking for
+          opportunities to build, experiment, and grow.
         </p>
       </div>
 
@@ -41,55 +73,22 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-6 gradient-text">Areas of Expertise</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-3">AI & Machine Learning</h3>
+            <h3 className="text-xl font-semibold mb-3">Core ML Expertise</h3>
             <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Deep Learning & Neural Networks</li>
-              <li>Natural Language Processing</li>
-              <li>Computer Vision</li>
-              <li>Reinforcement Learning</li>
+              <li>Recommendation Systems & Personalization</li>
+              <li>Search & Ranking</li>
+              <li>Experimentation & Real-Time Decision-Making</li>
+              <li>End-to-End ML: Pipelines, Feature Engineering, Online Inference</li>
             </ul>
           </div>
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-3">Software Development</h3>
+            <h3 className="text-xl font-semibold mb-3">Generative & Agentic AI</h3>
             <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Python & TensorFlow</li>
-              <li>React & Next.js</li>
-              <li>Cloud Computing</li>
-              <li>System Architecture</li>
+              <li>LLMs & Retrieval-Augmented Generation (RAG)</li>
+              <li>Multi-Agent Systems & Tool Calling</li>
+              <li>LangGraph & AI Orchestration Frameworks</li>
+              <li>Vector Databases</li>
             </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Publications & Projects Section */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 gradient-text">Selected Projects</h2>
-        <div className="space-y-6">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">AI Research Projects</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Led research initiatives in natural language processing and machine learning,
-              focusing on improving model efficiency and accuracy.
-            </p>
-            <a 
-              href="#" 
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              Learn More →
-            </a>
-          </div>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Open Source Contributions</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Active contributor to various open-source AI and software development projects,
-              helping build tools and libraries used by developers worldwide.
-            </p>
-            <a 
-              href="#" 
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              View Projects →
-            </a>
           </div>
         </div>
       </div>
@@ -110,7 +109,7 @@ export default function AboutPage() {
             GitHub
           </a>
           <a 
-            href="www.linkedin.com/in/bhavtosh-rath" 
+            href="https://www.linkedin.com/in/bhavtosh-rath"
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -118,7 +117,7 @@ export default function AboutPage() {
             LinkedIn
           </a>
           <a 
-            href="mailto:rathbhavosh3003@gmail.com" 
+            href="mailto:rathbhavtosh3003@gmail.com"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             Email
