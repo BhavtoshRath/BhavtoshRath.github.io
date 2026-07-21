@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import CategoryTag from './CategoryTag'
+import FadeInWhenVisible from './FadeInWhenVisible'
 import { PostData } from '@/lib/posts'
 
 export default function FeaturedPost({ post }: { post: PostData }) {
   return (
+    <FadeInWhenVisible>
     <Link href={`/posts/${post.id}`} className="block group mb-12">
-      <article className="relative bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 overflow-hidden transition-shadow duration-300 group-hover:shadow-2xl">
+      <article className="card-hover relative bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 overflow-hidden group-hover:shadow-2xl">
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500" />
         <span className="inline-block text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 mb-3">
           Latest Post
@@ -44,5 +46,6 @@ export default function FeaturedPost({ post }: { post: PostData }) {
         </span>
       </article>
     </Link>
+    </FadeInWhenVisible>
   )
 }

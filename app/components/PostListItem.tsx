@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import CategoryTag from './CategoryTag'
+import FadeInWhenVisible from './FadeInWhenVisible'
 import { PostData } from '@/lib/posts'
 
 export default function PostListItem({ post }: { post: PostData }) {
   return (
-    <article className="py-6 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+    <FadeInWhenVisible>
+    <article className="card-hover py-6 px-4 -mx-4 rounded-lg border-b border-gray-200 dark:border-gray-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-800/60">
       {post.categories && post.categories.length > 0 && (
         <div className="flex flex-wrap mb-2">
           {post.categories.map(category => (
@@ -43,5 +45,6 @@ export default function PostListItem({ post }: { post: PostData }) {
         Read more →
       </Link>
     </article>
+    </FadeInWhenVisible>
   )
 }
