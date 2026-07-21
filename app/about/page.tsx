@@ -62,9 +62,19 @@ export default function AboutPage() {
           beginning of what&apos;s possible with modern AI, and I&apos;m excited to help shape that future.
         </p>
         <p className="text-lg leading-relaxed">
-          Outside of work, I enjoy spending time with family, cooking, playing guitar, singing, and exploring
-          new technologies. I believe the best engineers are lifelong learners, and I&apos;m always looking for
-          opportunities to build, experiment, and grow.
+          Outside of work, I enjoy spending time with my family&mdash;especially my son, Shiva&mdash;cooking,
+          playing guitar, singing, playing PS5 games, and exploring new technologies. I upload some of my
+          guitar covers to my{' '}
+          <a
+            href="https://www.youtube.com/@bhavtoshguitar948"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            YouTube channel
+          </a>
+          . I believe the best engineers are lifelong learners, and I&apos;m always looking for opportunities to
+          build, experiment, and grow.
         </p>
       </div>
 
