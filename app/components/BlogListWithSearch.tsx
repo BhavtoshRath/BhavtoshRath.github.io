@@ -2,6 +2,7 @@
 import { useState } from "react";
 import FeaturedPost from "./FeaturedPost";
 import PostListItem from "./PostListItem";
+import AuthorBio from "./AuthorBio";
 import type { PostData } from "@/lib/posts";
 
 interface BlogListWithSearchProps {
@@ -16,6 +17,11 @@ export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
     new Set(posts.flatMap(post => post.categories ?? []))
   ).sort((a, b) => a.localeCompare(b));
 
+  const categoryCounts = allCategories.reduce<Record<string, number>>((counts, category) => {
+    counts[category] = posts.filter(post => post.categories?.includes(category)).length;
+    return counts;
+  }, {});
+
   const isFiltering = query.trim().length > 0 || selectedCategory !== null;
   const filteredPosts = posts.filter(
     post =>
@@ -27,9 +33,10 @@ export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
   const [featuredPost, ...remainingPosts] = posts;
 
   return (
-    <>
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 items-start">
+    <div>
       {allCategories.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
+        <div className="flex flex-wrap justify-center gap-2 mb-6 lg:hidden">
           <button
             className={`px-3 py-1 rounded-full text-sm font-semibold border transition-colors ${
               selectedCategory === null
@@ -92,6 +99,47 @@ export default function BlogListWithSearch({ posts }: BlogListWithSearchProps) {
       ) : (
         <p className="text-center text-gray-500">No posts found.</p>
       )}
-    </>
+    </div>
+
+    <aside className="hidden lg:block sticky top-24 space-y-6">
+      <AuthorBio />
+
+      {allCategories.length > 0 && (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="font-bold text-gray-900 dark:text-white mb-4">Categories</h3>
+          <ul className="space-y-1">
+            <li>
+              <button
+                onClick={() => setSelectedCategory(null)}
+                className={`w-full flex items-center justify-between px-2 py-1.5 rounded text-sm transition-colors ${
+                  selectedCategory === null
+                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+              >
+                <span>All Posts</span>
+                <span className="text-xs text-gray-400 dark:text-gray-500">{posts.length}</span>
+              </button>
+            </li>
+            {allCategories.map(category => (
+              <li key={category}>
+                <button
+                  onClick={() => setSelectedCategory(category)}
+                  className={`w-full flex items-center justify-between px-2 py-1.5 rounded text-sm transition-colors ${
+                    selectedCategory === category
+                      ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold'
+                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  <span>{category}</span>
+                  <span className="text-xs text-gray-400 dark:text-gray-500">{categoryCounts[category]}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </aside>
+    </div>
   );
 }
