@@ -28,7 +28,8 @@ export default async function BlogPost({ params }: Props) {
                   {new Date(post.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
-                    day: 'numeric'
+                    day: 'numeric',
+                    timeZone: 'UTC'
                   })}
                 </time>
               </div>
