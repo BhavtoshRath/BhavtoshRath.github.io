@@ -62,8 +62,8 @@ export default function AboutPage() {
           beginning of what&apos;s possible with modern AI, and I&apos;m excited to help shape that future.
         </p>
         <p className="text-lg leading-relaxed">
-          Outside of work, I enjoy spending time with my family&mdash;especially my son, Shiva&mdash;cooking,
-          playing guitar, singing, playing PS5 games, and exploring new technologies. I upload some of my
+          Outside of work, I enjoy spending time with my son, Shivam&mdash;cooking, playing guitar, singing,
+          playing PS5 games, and exploring new technologies. I upload some of my
           guitar covers to my{' '}
           <a
             href="https://www.youtube.com/@bhavtoshguitar948"
