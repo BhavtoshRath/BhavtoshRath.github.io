@@ -7,6 +7,13 @@ categories: ['Personalization', 'LLM', 'Agents', 'Recommendation Systems']
 readTime: '6 mins'
 ---
 
+## TL;DR
+
+- Built a 3-agent (researcher, strategist, executor) LLM pipeline that personalizes ad serving from simulated clicks, replacing a fixed epsilon-greedy explore/exploit rule with an LLM reasoning over the same context.
+- Every serving decision is logged in plain language, so it's auditable like a sentence instead of reverse-engineered from a weight matrix.
+- At small scale (5 sessions) the agent pipeline underperformed baselines — a reminder that "smarter" systems still need enough volume before they can prove it.
+- A swappable `client` argument let the whole pipeline be unit-tested with a fake LLM double, with zero live API calls or token cost.
+
 This is a small project I put together in a day using Claude, mostly to answer a question I couldn't stop poking at. I've built traditional bandit models for exploration/exploitation before — see [this post](https://tech.target.com/blog/page-layout-optimization-bandits) on page-layout optimization from my time at Target — where the explore/exploit call is normally a fixed rule (epsilon-greedy, UCB, Thompson sampling) reacting to numbers. I wanted to see what happens if that decision is instead made by an LLM reasoning over the same context: does it hold up, and does it buy you anything a hand-tuned rule doesn't?
 
 Recommendation systems are usually black boxes too: a model scores a thousand candidates and you get a ranked list, with little insight into *why* item 42 beat item 7. Having worked on item personalization at Target, I wanted to explore an alternative structure — one where the "why" is a first-class output, not an afterthought. So I built [Adaptive Ads](https://github.com/BhavtoshRath/adaptive-ads), a simulated ad-serving environment where three small LLM agents — a researcher, a strategist, and an executor — cooperate to personalize what gets shown to a user, using Claude for the judgment calls and plain code for everything that should be deterministic.

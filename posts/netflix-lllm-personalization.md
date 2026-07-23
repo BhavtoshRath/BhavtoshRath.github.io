@@ -7,6 +7,13 @@ categories: ['Personalization', 'LLM', 'Netflix']
 readTime: '5 mins'
 ---
 
+## TL;DR
+
+- Summary of a Netflix tech blog post on moving from many specialized recommendation models to a single foundation model.
+- Inspired by LLM/NLP trends: fewer narrow models, one large model shared across tasks via fine-tuning or embeddings.
+- Uses full interaction history instead of a narrow time window, plus an interaction "tokenization" scheme similar to Byte Pair Encoding.
+- Prioritizes data quality over raw volume — the same lesson LLM pretraining data curation has learned.
+
 Here is a summary of an interesting blog post I recently read about how Netflix is using a foundation model for its personalized recommendation system. As a scientist who has worked in the item personalization team at Target, I believe this is the future of every platform that builds recommendation models.
 
 The blog discusses how Netflix's personalized recommender system has evolved, becoming a complex network of machine-learned models, each designed for specific user needs such as "Continue Watching" and "Today's Top Picks for You." However, as the platform grew, the demand for more sophisticated personalization models increased, making it costly to maintain these models. Additionally, the fact that most models were independently trained despite using similar data made it difficult to transfer innovations across them. This highlighted a critical limitation in the system, emphasizing the need for a more unified and scalable architecture that could better centralize member preference learning and make data more accessible and useful across all models.

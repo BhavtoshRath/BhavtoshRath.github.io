@@ -7,6 +7,13 @@ categories: ['LLM Routing', 'Cost Optimization', 'Agents', 'Recommendation Syste
 readTime: '4 mins'
 ---
 
+## TL;DR
+
+- Routing which items get expensive LLM reasoning vs. a cheap heuristic shouldn't be based on difficulty alone — a hard $4 item and a hard $2,000 item are not the same mistake.
+- The router only sends an item to the slow, expensive path when both its estimated difficulty *and* estimated value clear fixed thresholds.
+- Walked one item end-to-end: a $300 leather jacket clears both thresholds and gets routed to the LLM, while an equally-hard $4 accessory doesn't because its value estimate is too low.
+- Next posts in the series run this router over a full catalog and evaluate it against difficulty-only and random baselines.
+
 ## The Core Idea
 
 As AI agents and LLMs become an increasingly integral part of personalization systems, they introduce a new systems-design challenge. Unlike traditional heuristics or lightweight models, every LLM inference comes with a cost — in latency, token usage, and compute. This naturally raises a fundamental question:

@@ -7,6 +7,13 @@ categories: ['LLM Routing', 'Cost Optimization', 'Agents', 'Recommendation Syste
 readTime: '5 mins'
 ---
 
+## TL;DR
+
+- Aggregate stats like "12% of items went to the slow path" can look healthy while a router silently starves a small, high-value segment.
+- Added a decision logger (per-item record of estimates, path, cost, and hidden ground truth) plus a monitor that checks spend-by-category against volume share and calibration.
+- On the synthetic catalog, `premium` and `luxury` are 10.9% of volume but absorb 67.7% of spend — the router concentrating cost where mistakes are expensive, not where volume is highest.
+- Breaking calibration down by category reveals the difficulty estimator has close to zero real signal within a category, even though its overall correlation looked fine — exactly what an aggregate number hides.
+
 ## Recap
 
 [Part 1](/posts/value-router-value-weighted-routing) walked a single leather jacket through the pipeline: a simulator generates an item, a difficulty scorer and value estimator turn its observable fields into estimates, and a routing decision sends only the items that clear both a difficulty *and* a value threshold down the expensive path. The thesis was simple — difficulty alone isn't enough, because a difficult $4 phone case and a difficult $2,000 jacket are not the same mistake to make.
