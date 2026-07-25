@@ -40,6 +40,12 @@ body {
     @apply text-gray-700 dark:text-gray-300;
   }
 
+  /* Fade the right edge only when a code block actually overflows, hinting there's more off-screen */
+  .prose pre[data-scrollable='true'] {
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 2rem), transparent);
+    mask-image: linear-gradient(to right, black calc(100% - 2rem), transparent);
+  }
+
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400;
   }

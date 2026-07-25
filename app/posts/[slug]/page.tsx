@@ -2,6 +2,7 @@ import { getPostData, getAllPostIds, getAdjacentPosts } from '../../../lib/posts
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 import CategoryTag from '@/app/components/CategoryTag'
+import PostBody from '@/app/components/PostBody'
 import Link from 'next/link'
 
 interface Params {
@@ -96,7 +97,7 @@ export default async function BlogPost({ params }: Props) {
             prose-h2:text-2xl
             prose-h3:text-xl
             prose-li:text-[18px]">
-            <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+            <PostBody html={post.contentHtml} />
           </div>
 
           {/* Prev / Next Post Navigation */}
