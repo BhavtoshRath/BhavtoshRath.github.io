@@ -85,4 +85,18 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
     }),
     readTime: matterResult.data.readTime || ''
   }
-} 
+}
+
+export function getAdjacentPosts(slug: string): { newer: PostData | null; older: PostData | null } {
+  const posts = getSortedPostsData()
+  const index = posts.findIndex((post) => post.id === slug)
+
+  if (index === -1) {
+    return { newer: null, older: null }
+  }
+
+  return {
+    newer: index > 0 ? posts[index - 1] : null,
+    older: index < posts.length - 1 ? posts[index + 1] : null
+  }
+}

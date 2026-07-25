@@ -1,4 +1,4 @@
-import { getPostData, getAllPostIds } from '../../../lib/posts'
+import { getPostData, getAllPostIds, getAdjacentPosts } from '../../../lib/posts'
 import { notFound } from 'next/navigation'
 import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 import CategoryTag from '@/app/components/CategoryTag'
@@ -16,10 +16,20 @@ export default async function BlogPost({ params }: Props) {
   try {
     const resolvedParams = await params;
     const post = await getPostData(resolvedParams.slug)
+    const { newer, older } = getAdjacentPosts(resolvedParams.slug)
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
         <article className="max-w-7xl mx-auto px-4 py-16">
+          <div className="max-w-3xl mx-auto mb-8">
+            <Link
+              href="/"
+              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              ← Back to all posts
+            </Link>
+          </div>
+
           {/* Enhanced Header Section */}
           <header className="mb-16 text-center">
             <div className="mb-4 space-y-2">
@@ -32,6 +42,12 @@ export default async function BlogPost({ params }: Props) {
                     timeZone: 'UTC'
                   })}
                 </time>
+                {post.readTime && (
+                  <>
+                    <span className="text-gray-400 dark:text-gray-500">•</span>
+                    <span className="text-gray-500 dark:text-gray-400">{post.readTime} read</span>
+                  </>
+                )}
               </div>
             </div>
             
@@ -71,7 +87,7 @@ export default async function BlogPost({ params }: Props) {
           )}
           
           {/* Enhanced Content Section */}
-          <div className="prose prose-lg dark:prose-invert mx-auto
+          <div className="prose prose-lg dark:prose-invert mx-auto max-w-3xl
             bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl
             prose-p:text-[18px]
             prose-p:leading-[1.8]
@@ -82,6 +98,30 @@ export default async function BlogPost({ params }: Props) {
             prose-li:text-[18px]">
             <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           </div>
+
+          {/* Prev / Next Post Navigation */}
+          {(older || newer) && (
+            <nav className="max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {older ? (
+                <Link
+                  href={`/posts/${older.id}`}
+                  className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+                >
+                  <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">← Older post</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">{older.title}</p>
+                </Link>
+              ) : <div />}
+              {newer ? (
+                <Link
+                  href={`/posts/${newer.id}`}
+                  className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-right"
+                >
+                  <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Newer post →</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">{newer.title}</p>
+                </Link>
+              ) : <div />}
+            </nav>
+          )}
         </article>
       </div>
     )
