@@ -60,7 +60,7 @@ export default async function BlogPost({ params }: Props) {
                 <div className="h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white text-lg font-medium shadow-lg">
                   {post.author[0]}
                 </div>
-                <div className="ml-3 text-left">
+                <div className="ml-4 text-left">
                   <p className="text-gray-900 dark:text-white font-medium">{post.author}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">Author</p>
                 </div>
