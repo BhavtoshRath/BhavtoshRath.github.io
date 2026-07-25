@@ -68,7 +68,7 @@ export default async function BlogPost({ params }: Props) {
             </div>
 
             {/* Add categories section */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap justify-center gap-2 mt-6 mb-4">
               {post.categories?.map(category => (
                 <Link key={category} href={`/categories#${category}`}>
                   <CategoryTag name={category} />
