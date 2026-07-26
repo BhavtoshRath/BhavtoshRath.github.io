@@ -1,5 +1,5 @@
 ---
-title: 'Why AI Systems Should Spend Their Intelligence Where It Matters'
+title: 'Value Router, Part 1: Why AI Systems Should Spend Their Intelligence Where It Matters'
 date: '2026-07-19'
 excerpt: 'A routing pipeline that decides fast-path vs. slow-path treatment for retail items using both estimated difficulty and estimated value — and an eval that shows why difficulty alone is the wrong signal to route on.'
 author: 'Bhavtosh Rath'

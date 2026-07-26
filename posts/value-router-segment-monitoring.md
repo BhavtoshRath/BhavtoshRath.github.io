@@ -1,5 +1,5 @@
 ---
-title: 'A Router That Looks Good on Average Can Still Be Starving Your Best Segment'
+title: 'Value Router, Part 2: A Router That Looks Good on Average Can Still Be Starving Your Best Segment'
 date: '2026-07-22'
 excerpt: 'Part 2 of the value-router series: why a routing decision is only half the story, and what a lightweight decision log and calibration check reveal about who actually gets the expensive path.'
 author: 'Bhavtosh Rath'
