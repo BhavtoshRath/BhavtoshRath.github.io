@@ -24,6 +24,9 @@ Meta is experimenting with user-steerable recommendation through **Dear Algo**, 
 
 At first these looked like unrelated experiments. Taken together, they suggest something bigger: we're not just swapping smaller models for larger ones, we're rethinking **how user preferences themselves should be represented**. Looking back over the past two decades, recommendation systems seem to have gone through three fundamentally different representations of preference — explicit rules, then learned latent embeddings, and now, increasingly, language. Whether this becomes the dominant paradigm is still an open question, but it's one of the more interesting shifts happening in personalization right now.
 
+![Evolution of personalization](/images/evolution_of_personalization.png)
+*Evolution of personalization*
+
 ## Rules: when recommendations were understandable
 
 Before recommendation was a machine learning problem, it was largely a collection of heuristics and business rules. Amazon's early item-to-item collaborative filtering, editorial curation, manually designed merchandising rules, genre-based recommendation, "customers who bought X also bought Y" — all belonged to this era.
