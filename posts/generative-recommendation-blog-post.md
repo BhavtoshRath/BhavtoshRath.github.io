@@ -33,6 +33,9 @@ Two pieces make this possible, and both are now standard vocabulary in the field
 
 **Sequential transformers at catalog scale.** Once items are tokenized, you need an architecture that can model long user histories efficiently. Meta's HSTU (Hierarchical Sequential Transduction Units) was built specifically for this — modeling extremely long, high-frequency interaction sequences at a scale existing transformer variants weren't designed for, described as operating over what Meta calls a "trillion-parameter" sequential recommendation model.
 
+![Two ways to recommend](/images/gen_mv_rec.png)
+*Embeddings-based recommendation finds movies similar to what you've already watched; generative recommendation understands intent and generates a wider, more diverse set of possibilities.*
+
 Put side by side, the two paradigms differ on almost every architectural decision:
 
 | Dimension | Traditional embedding-based recsys | Generative recommendation |
