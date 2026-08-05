@@ -7,6 +7,14 @@ categories: ['Personalization', 'LLM', 'Recommendation Systems']
 readTime: '6 mins'
 ---
 
+## TL;DR
+
+- Recommendation is going through the same shift NLP went through with ChatGPT: from scoring/matching (two-tower embeddings + ranking) to **generative recommendation**, where the model generates the next item(s) a user wants, token by token.
+- Two building blocks make this possible: **semantic IDs** (items as discrete token sequences instead of arbitrary catalog IDs, from Google's TIGER, Spotify, Snapchat) and **sequential transformers at catalog scale** (Meta's HSTU).
+- It's already in production, not just research — Netflix's GenRec, Kuaishou's OneRec/OneRec-V2, and reported efforts at Meta, Alibaba, ByteDance, Tencent, Baidu, JD.com, and Xiaohongshu.
+- The appeal: one architecture can unify retrieval, ranking, and even search/ads, and it handles cold start better since a new item's tokens come from its content, not its history.
+- The catch: semantic ID tokenizer design is still an open research problem, discrete tokens can lose information dense embeddings capture, and it's operationally heavier than the decade-hardened two-tower stack it's replacing.
+
 For twenty years, personalization meant matching. You have a user, you have a catalog of items, and a model scores how well each item fits that user — collaborative filtering, then deep learning rankers, then two-tower embedding models. Score everything, sort, serve the top results. It worked well enough to become the invisible infrastructure behind most of the internet: Amazon's recommender drives roughly a third of its purchases, and Netflix recommendations shape about three-quarters of what people actually watch.
 
 That architecture is now being replaced, and the shift is fast enough that people in the field are openly comparing it to the ChatGPT moment in NLP. The comparison isn't new — Tullie Murrell asked ["Is This the ChatGPT Moment for Recommendation Systems?"](https://tullie.ai/blog/chatgpt-moment-for-recommendations) back in June 2024, right after Meta published its Generative Recommenders (HSTU) paper, and Yuan Meng revisited the same question in August 2025 in ["Is Generative Recommendation the ChatGPT Moment of RecSys?"](https://www.yuan-meng.com/posts/generative_recommendation/) — what's changed since then is how much production evidence has piled up behind it. The new paradigm is called **generative recommendation**, and if you want to understand where personalization is headed, this is the thing to track.
