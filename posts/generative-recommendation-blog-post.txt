@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[185,["874","static/chunks/874-2bcc78fb298751b5.js","177","static/chunks/app/layout-7a88852525312767.js"],"ThemeProvider"]
+3:I[6653,["874","static/chunks/874-2bcc78fb298751b5.js","177","static/chunks/app/layout-7a88852525312767.js"],"default"]
+4:I[7555,[],""]
+5:I[1295,[],""]
+6:I[6874,["874","static/chunks/874-2bcc78fb298751b5.js","858","static/chunks/app/posts/%5Bslug%5D/page-6115a63a02adcd90.js"],""]
+7:I[1423,["874","static/chunks/874-2bcc78fb298751b5.js","177","static/chunks/app/layout-7a88852525312767.js"],"default"]
+9:I[9665,[],"MetadataBoundary"]
+b:I[9665,[],"OutletBoundary"]
+e:I[4911,[],"AsyncMetadataOutlet"]
+10:I[9665,[],"ViewportBoundary"]
+12:I[6614,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/5dcd58584c080b8d.css","style"]
+0:{"P":null,"b":"kbuV6nGKp5cOFXXSjSOSx","p":"","c":["","posts","generative-recommendation-blog-post"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","generative-recommendation-blog-post","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/5dcd58584c080b8d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_f367f3 min-h-screen bg-white dark:bg-gray-900","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"children":["$","div",null,{"className":"flex flex-col min-h-screen","children":[["$","$L3",null,{}],["$","main",null,{"className":"flex-grow container mx-auto px-4 py-8","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12","children":["$","div",null,{"className":"max-w-6xl mx-auto px-4 py-12","children":[["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-8","children":[["$","div",null,{"children":[["$","h3",null,{"className":"text-lg font-semibold mb-4 gradient-text","children":"About"}],["$","p",null,{"className":"text-gray-600 dark:text-gray-300","children":"A personal blog sharing insights about technology, development, and more."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-lg font-semibold mb-4 gradient-text","children":"Quick Links"}],["$","ul",null,{"className":"space-y-2","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/","className":"text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors","children":"Home"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/about","className":"text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors","children":"About"}]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-lg font-semibold mb-4 gradient-text","children":"Connect"}],["$","div",null,{"className":"flex space-x-4","children":["$","a",null,{"href":"https://github.com/BhavtoshRath","target":"_blank","rel":"noopener noreferrer","className":"text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors","children":"GitHub"}]}]]}]]}],["$","div",null,{"className":"mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400","children":[["$","p",null,{"children":["© ",2026," Bhavtosh Rath. All rights reserved."]}],["$","div",null,{"className":"mt-6 flex justify-center","children":["$","$L7",null,{}]}]]}]]}]}]]}]}]}]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","generative-recommendation-blog-post","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L8",["$","$L9",null,{"children":"$La"}],null,["$","$Lb",null,{"children":["$Lc","$Ld",["$","$Le",null,{"promise":"$@f"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","lTYqC4aaC-Q5vC4nRvr-4",{"children":[["$","$L10",null,{"children":"$L11"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$12","$undefined"],"s":false,"S":true}
+13:"$Sreact.suspense"
+14:I[4911,[],"AsyncMetadata"]
+a:["$","$13",null,{"fallback":null,"children":["$","$L14",null,{"promise":"$@15"}]}]
+d:null
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+c:null
+15:{"metadata":[["$","title","0",{"children":"Bhavtosh Rath's blog website"}],["$","meta","1",{"name":"description","content":"A modern blog built with Next.js and TypeScript"}]],"error":null,"digest":"$undefined"}
+f:{"metadata":"$15:metadata","error":null,"digest":"$undefined"}
+16:I[997,["874","static/chunks/874-2bcc78fb298751b5.js","858","static/chunks/app/posts/%5Bslug%5D/page-6115a63a02adcd90.js"],"default"]
+17:T2d93,<p>For twenty years, personalization meant matching. You have a user, you have a catalog of items, and a model scores how well each item fits that user — collaborative filtering, then deep learning rankers, then two-tower embedding models. Score everything, sort, serve the top results. It worked well enough to become the invisible infrastructure behind most of the internet: Amazon's recommender drives roughly a third of its purchases, and Netflix recommendations shape about three-quarters of what people actually watch.</p>
+<p>That architecture is now being replaced, and the shift is fast enough that people in the field are openly comparing it to the ChatGPT moment in NLP. The comparison isn't new — Tullie Murrell asked <a href="https://tullie.ai/blog/chatgpt-moment-for-recommendations">"Is This the ChatGPT Moment for Recommendation Systems?"</a> back in June 2024, right after Meta published its Generative Recommenders (HSTU) paper, and Yuan Meng revisited the same question in August 2025 in <a href="https://www.yuan-meng.com/posts/generative_recommendation/">"Is Generative Recommendation the ChatGPT Moment of RecSys?"</a> — what's changed since then is how much production evidence has piled up behind it. The new paradigm is called <strong>generative recommendation</strong>, and if you want to understand where personalization is headed, this is the thing to track.</p>
+<h2>The old way, briefly</h2>
+<p>Classic recommender systems work in two stages. A "two-tower" model builds a vector embedding for the user and a vector embedding for each item, then finds items whose embeddings are close to the user's — this is the "retrieval" stage, pulling a few hundred candidates from a catalog of millions. A separate, heavier ranking model then scores those candidates more precisely. It's fast, scalable, and it's what powered the recommendation industry for most of its existence. Its weakness: the model doesn't really "understand" a user's history so much as it compresses it into a fixed vector, which loses sequence, context, and the reasoning a human would apply.</p>
+<h2>What's changing: treating recommendation like language generation</h2>
+<p>The core idea behind generative recommendation is deceptively simple — treat a user's interaction history the way you'd treat a sentence, and treat recommendation the way you'd treat text generation. Instead of scoring a huge candidate list, the model generates the next item(s) a user is likely to want, token by token, the same way an LLM generates the next word.</p>
+<p>Two pieces make this possible, and both are now standard vocabulary in the field.</p>
+<p><strong>Semantic IDs.</strong> Items (a movie, a song, a product) get converted into short sequences of discrete tokens that capture their semantic content, rather than being represented by an arbitrary catalog ID. Google's TIGER paper introduced this approach in 2023, and it's since been adopted and extended by Spotify and Snapchat, both of whom have published detailed accounts of how they built semantic-ID tokenizers for their own catalogs in 2025–2026. The appeal: semantically similar items get similar token sequences, which helps with cold start (a brand-new song can still get reasonable tokens based on its content, even with zero play history) and lets the same generative architecture handle retrieval, ranking, and even search with one shared representation.</p>
+<p><strong>Sequential transformers at catalog scale.</strong> Once items are tokenized, you need an architecture that can model long user histories efficiently. Meta's HSTU (Hierarchical Sequential Transduction Units) was built specifically for this — modeling extremely long, high-frequency interaction sequences at a scale existing transformer variants weren't designed for, described as operating over what Meta calls a "trillion-parameter" sequential recommendation model.</p>
+<p>Put side by side, the two paradigms differ on almost every architectural decision:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Traditional embedding-based recsys</th>
+<th>Generative recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item representation</td>
+<td>Dense vector embedding, looked up from an arbitrary catalog ID</td>
+<td>Short sequence of discrete tokens (semantic ID) derived from item content</td>
+</tr>
+<tr>
+<td>Core mechanism</td>
+<td>Similarity search — find items whose embeddings are close to the user's</td>
+<td>Autoregressive generation — predict the next item token by token, like next-word prediction</td>
+</tr>
+<tr>
+<td>Pipeline shape</td>
+<td>Two separate stages: retrieval (two-tower) then ranking</td>
+<td>Often a single generative model handles retrieval, ranking, and search</td>
+</tr>
+<tr>
+<td>User history</td>
+<td>Compressed into a single fixed-length vector, losing order and context</td>
+<td>Modeled as a sequence, preserving order and context (e.g., Meta's HSTU)</td>
+</tr>
+<tr>
+<td>Cold start</td>
+<td>Weak — new items/users have no interaction history to embed against</td>
+<td>Better — a new item's semantic tokens come from its content, not its history</td>
+</tr>
+<tr>
+<td>Serving infrastructure</td>
+<td>Vector similarity search (ANN indexes) at prediction time</td>
+<td>GPU-accelerated autoregressive inference (vLLM, Triton-style stacks), closer to LLM serving</td>
+</tr>
+<tr>
+<td>Maturity</td>
+<td>A decade-plus of production hardening</td>
+<td>Early — in production at Netflix, Kuaishou, and others, but operationally newer</td>
+</tr>
+</tbody>
+</table>
+<h2>Who's actually shipping this</h2>
+<p>This isn't a research curiosity — it's in production at scale, and the pace of adoption in 2025–2026 has been notable:</p>
+<p><strong>Netflix's GenRec</strong>, published in mid-2026, adapts Netflix's internal foundation LLM directly into a recommendation ranker. It verbalizes a user's viewing history, context, and catalog metadata into a language-model-style input, adds a catalog-aware ranking head, and trains with reward-weighted objectives tied to long-term satisfaction rather than short-term clicks. Netflix has also published separate work on using LLM post-training techniques for artwork personalization — deciding which thumbnail to show which user.</p>
+<p><strong>Kuaishou's OneRec</strong>, first released in February 2025, introduced a unified encoder-decoder generative architecture with an RL-based refinement step (Iterative Preference Alignment) that adjusts recommendations using real user feedback and reward models. By June 2025, OneRec-V2 moved to a fully autoregressive decoder and extended the approach to jointly optimize recommendation, search, and advertising from one system — a meaningful shift, since these were traditionally separate stacks.</p>
+<p><strong>Meta, Alibaba, Meituan, ByteDance, Tencent, Baidu, JD.com, and Xiaohongshu</strong> are all reported to be pursuing versions of this generative paradigm for their own retrieval and ranking systems, which suggests this isn't one company's bet but a genuine industry-wide architectural shift.</p>
+<h2>Why this matters beyond "bigger model, better results"</h2>
+<p>A few things about generative recommendation are worth understanding even if you never implement it yourself:</p>
+<p>It unifies systems that used to be separate. Search, recommendation, and advertising have historically run on different infrastructure with different objectives. When everything is tokenized items and a shared generative model, one architecture can serve all three — which is part of why Kuaishou explicitly optimized OneRec-V2 across all of them jointly.</p>
+<p>It changes what "cold start" means. Traditional collaborative filtering struggles badly with new items and new users because it has no interaction history to learn from. Semantic IDs partially sidestep this: a new item's tokens are derived from its content, so the model has <em>something</em> to reason about even with zero engagement data.</p>
+<p>It's pulling recommendation infrastructure toward LLM infrastructure. Serving these models increasingly means GPU-accelerated inference stacks (vLLM, Triton), careful batching, and caching strategies borrowed directly from how LLMs are served — a real operational shift for teams that built their infra around classic RecSys assumptions.</p>
+<h2>The honest caveats</h2>
+<p>This is a genuinely new paradigm, and it comes with genuinely unresolved problems, not just implementation details to smooth over.</p>
+<p>Semantic ID tokenizer design is still an open research question. Recent papers (including diagnostic work like SIDInspector and comparative studies on tokenizer reliability) point out that different tokenization choices produce meaningfully different downstream behavior, and the field doesn't yet have a settled best practice — comparisons between approaches in the literature aren't always apples-to-apples.</p>
+<p>Purely discrete semantic IDs can lose information that dense embeddings capture well, which is why several 2025–2026 papers are exploring hybrid dense-plus-discrete representations rather than committing fully to one or the other.</p>
+<p>Generative recommendation is also compute-heavier and operationally newer than mature two-tower systems, which have had a decade of production hardening. Companies adopting it are making a real infrastructure bet, not a drop-in upgrade.</p>
+<h2>Where this leaves personalization as a field</h2>
+<p>The direction is fairly clear: recommendation is converging with the same generative, transformer-based modeling that reshaped NLP, and the companies with the largest catalogs and interaction volumes (Netflix, Meta, Kuaishou, Alibaba, ByteDance) are the ones defining the architecture as they go. If you're tracking this space, the specific things worth watching are how semantic ID tokenization standardizes (or doesn't), whether hybrid dense/discrete representations win out, and how many more companies follow Kuaishou's lead in unifying search, recommendation, and ads under one generative model.</p>
+<hr>
+<p><em>Sources:</em></p>
+<ul>
+<li><a href="https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3">GenRec: Towards LLM-Native Recommendation at Netflix</a></li>
+<li><a href="https://research.netflix.com/publication/netflix-artwork-personalization-via-llm-post-training">Netflix Artwork Personalization via LLM Post-training</a></li>
+<li><a href="https://www.techrxiv.org/doi/10.36227/techrxiv.176523089.94266134">Generative Recommendation: A Survey of Models, Systems, and Industrial Advances</a></li>
+<li><a href="https://arxiv.org/pdf/2604.03949">Semantic IDs for Recommender Systems at Snapchat</a></li>
+<li><a href="https://research.atspotify.com/2025/9/semantic-ids-for-generative-search-and-recommendation">Semantic IDs for Generative Search and Recommendation | Spotify Research</a></li>
+<li><a href="https://www.yuan-meng.com/posts/generative_recommendation/">Is Generative Recommendation the ChatGPT Moment of RecSys?</a></li>
+<li><a href="https://tullie.ai/blog/chatgpt-moment-for-recommendations">Is This the ChatGPT Moment for Recommendation Systems?</a></li>
+<li><a href="https://arxiv.org/abs/2305.05065">Recommender Systems with Generative Retrieval (TIGER)</a></li>
+<li><a href="https://arxiv.org/pdf/2606.10375">SIDInspector: A Mapping-First Diagnostic Resource for Semantic-ID Tokenizers</a></li>
+<li><a href="https://arxiv.org/pdf/2605.25330">How Reliable Are Semantic-ID Tokenizer Comparisons in Generative Recommendation?</a></li>
+<li><a href="https://arxiv.org/html/2508.01514">End-to-End Personalization: Unifying Recommender Systems with Large Language Models</a></li>
+</ul>
+8:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800","children":["$","article",null,{"className":"max-w-7xl mx-auto px-4 py-16","children":[["$","div",null,{"className":"max-w-3xl mx-auto mb-8","children":["$","$L6",null,{"href":"/","className":"text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline","children":"← Back to all posts"}]}],["$","header",null,{"className":"mb-16 text-center","children":[["$","div",null,{"className":"mb-4 space-y-2","children":["$","div",null,{"className":"flex items-center justify-center space-x-2 text-sm","children":[["$","time",null,{"className":"text-blue-600 dark:text-blue-400 font-medium","children":"August 4, 2026"}],[["$","span",null,{"className":"text-gray-400 dark:text-gray-500","children":"•"}],["$","span",null,{"className":"text-gray-500 dark:text-gray-400","children":["6 mins"," read"]}]]]}]}],["$","h1",null,{"className":"text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight tracking-tight text-blue-500","children":"Personalization Is Having Its ChatGPT Moment: Inside the Shift to Generative Recommendation"}],["$","div",null,{"className":"flex items-center justify-center space-x-4","children":["$","div",null,{"className":"flex items-center","children":[["$","div",null,{"className":"h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white text-lg font-medium shadow-lg","children":"B"}],["$","div",null,{"className":"ml-4 text-left","children":[["$","p",null,{"className":"text-gray-900 dark:text-white font-medium","children":"Bhavtosh Rath"}],["$","p",null,{"className":"text-sm text-gray-600 dark:text-gray-400","children":"Author"}]]}]]}]}],["$","div",null,{"className":"flex flex-wrap justify-center gap-2 mt-6 mb-4","children":[["$","$L6","Personalization",{"href":"/categories#Personalization","children":["$","span",null,{"className":"inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2","children":"Personalization"}]}],["$","$L6","LLM",{"href":"/categories#LLM","children":["$","span",null,{"className":"inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2","children":"LLM"}]}],["$","$L6","Recommendation Systems",{"href":"/categories#Recommendation Systems","children":["$","span",null,{"className":"inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2","children":"Recommendation Systems"}]}]]}]]}],"$undefined",["$","div",null,{"className":"prose prose-lg dark:prose-invert mx-auto max-w-3xl bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl prose-p:text-[18px] prose-p:leading-[1.8] prose-p:mb-6 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-li:text-[18px]","children":["$","$L16",null,{"html":"$17"}]}],["$","nav",null,{"className":"max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","$L6",null,{"href":"/posts/explainable-personalization-rules-to-language","className":"card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800","children":[["$","p",null,{"className":"text-xs font-medium text-gray-500 dark:text-gray-400 mb-1","children":"← Older post"}],["$","p",null,{"className":"font-semibold text-gray-900 dark:text-white","children":"From Rules to Representations to Language: The Return of Explainable Personalization"}]]}],["$","div",null,{}]]}]]}]}]
