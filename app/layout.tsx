@@ -6,9 +6,28 @@ import { ThemeProvider } from './components/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const siteUrl = 'https://bhavtoshrath.github.io'
+const description =
+  'Bhavtosh Rath — Machine Learning Scientist & AI Engineer, writing about recommendation systems, LLMs, and agentic AI, from research ideas to production systems.'
+
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Bhavtosh Rath's blog website",
-  description: 'A modern blog built with Next.js and TypeScript',
+  description,
+  openGraph: {
+    title: "Bhavtosh Rath's blog website",
+    description,
+    url: siteUrl,
+    siteName: "Bhavtosh Rath's blog website",
+    images: ['/images/profile.jpg'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: "Bhavtosh Rath's blog website",
+    description,
+    images: ['/images/profile.jpg'],
+  },
 }
 
 export default function RootLayout({
