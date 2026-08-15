@@ -31,6 +31,9 @@ Walk through the mechanics for any small business, in the order the owner would 
 
 That's the actual bar this product has to clear: can the owner go from signing up to a live recommendation block in an afternoon, on their own, without a call with the vendor? If it needs a data scientist, theirs or the vendor's, sitting in the loop to make it work, the product has already failed the customer it's meant for.
 
+![Generative recommendations as a service](/images/graas.png)
+*The retailer feeds in what they already have — catalog, prices, customer behavior — and the same model pushes recommendations out to every surface: site, app, email, ads.*
+
 ## Where this gets hard
 
 A retailer already has three cheap options: a Shopify recommendation app for $20 a month running straightforward co-purchase rules, an existing vendor like Nosto, Klevu, or Algolia Recommend with a decade of production hardening, or nothing at all, which is what most of them are running today. Beating nothing is easy. Beating a $20-a-month rules-based app that already handles most of the value is the real competitive bar, and rules-based systems hold up better than you'd expect at this data scale — sometimes "bought together" is just correct, and a heavier model buys very little over it.
