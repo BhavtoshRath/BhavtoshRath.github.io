@@ -4,6 +4,7 @@ import YouTubeEmbed from '@/app/components/YouTubeEmbed'
 import CategoryTag from '@/app/components/CategoryTag'
 import PostBody from '@/app/components/PostBody'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 interface Params {
   slug: string;
@@ -11,6 +12,43 @@ interface Params {
 
 interface Props {
   params: Promise<Params>;
+}
+
+const siteUrl = 'https://bhavtoshrath.github.io'
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const resolvedParams = await params
+    const post = await getPostData(resolvedParams.slug)
+    const url = `${siteUrl}/posts/${resolvedParams.slug}`
+    const image = post.image || '/images/profile.jpg'
+
+    return {
+      title: post.title,
+      description: post.excerpt,
+      alternates: {
+        canonical: url,
+      },
+      openGraph: {
+        title: post.title,
+        description: post.excerpt,
+        url,
+        siteName: "Bhavtosh Rath's blog website",
+        images: [image],
+        type: 'article',
+        publishedTime: post.date,
+        authors: [post.author],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt,
+        images: [image],
+      },
+    }
+  } catch {
+    return {}
+  }
 }
 
 export default async function BlogPost({ params }: Props) {

@@ -17,6 +17,7 @@ export interface PostData {
   contentHtml?: string
   categories?: string[]
   readTime?: string
+  image?: string
 }
 
 export async function getAllPostIds() {
@@ -76,7 +77,7 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
   return {
     id: slug,
     contentHtml,
-    ...(matterResult.data as { 
+    ...(matterResult.data as {
       title: string
       date: string
       excerpt: string
@@ -84,6 +85,7 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
       youtube?: string
       categories?: string[]
       readTime?: string
+      image?: string
     }),
     readTime: matterResult.data.readTime || ''
   }

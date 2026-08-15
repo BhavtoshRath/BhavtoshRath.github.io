@@ -5,6 +5,7 @@ excerpt: 'Generative recommenders look like they could finally bring real person
 author: 'Bhavtosh Rath'
 categories: ['Recommendation Systems', 'Startups']
 readTime: '4 mins'
+image: '/images/graas.png'
 ---
 
 ## TL;DR
