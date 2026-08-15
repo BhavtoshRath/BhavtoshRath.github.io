@@ -3,7 +3,7 @@ title: 'Generative Recommendation as a Service: A Real Business, or Just a Good 
 date: '2026-08-15'
 excerpt: 'Generative recommenders look like they could finally bring real personalization to small retailers who cannot afford an ML team. An entrepreneur''s honest stress-test of whether that''s a business or just a nice property of the model.'
 author: 'Bhavtosh Rath'
-categories: ['Recommendation Systems', 'Startups', 'LLM']
+categories: ['Recommendation Systems', 'Startups']
 readTime: '4 mins'
 ---
 
