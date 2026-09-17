@@ -4,7 +4,7 @@ date: '2026-09-17'
 excerpt: 'A recent Netflix paper separates taste from recommendation effect with a genuinely elegant piece of applied causal inference — and, more importantly, actually checks whether the separation is trustworthy against a live experiment.'
 author: 'Bhavtosh Rath'
 categories: ['Recommendation Systems', 'Causal Inference']
-readTime: '9 mins'
+readTime: '13 mins'
 ---
 
 ## TL;DR
@@ -112,6 +112,16 @@ The engagement drops tell a clear ordering: the sophistication of personalizatio
 Targeting is nearly 7x larger than exposure alone, and it matters most for mid-popularity titles, not the biggest hits (broad appeal makes them find their audience regardless) and not the nichest niche (too small a signal to target well). This is arguably the paper's sharpest finding: the value of a sophisticated RecSys isn't mostly about showing things to people — it's about finding specific, non-obvious matches and responding to them disproportionately.
 
 **What about titles that don't exist yet?** For catalog and content investment decisions, you need to estimate the incremental value of a title before it's released — and the endogenously-learned embeddings from Steps 1–4 can't do that, since they're learned from consumption data a new title doesn't have yet. So they extend the model with exogenous, pre-tagged embeddings — built from human tags and observable characteristics — that can represent titles that were never on the platform at all, trading a bit of predictive accuracy for the ability to reason about content that doesn't exist yet.
+
+## A question this raises for me
+
+I'll admit my own bias going into this. I spent time on the personalization team at Target, and a large part of that job was running A/B tests — take a new ranking model, ship it to a slice of real traffic, hold out a control, and after a few weeks read off a number: did this beat what's currently in production, or not? That's about as close to ground truth as "does this technique actually work" gets. Randomization does the hard work of untangling taste from exposure for free, no conditional-exogeneity assumption required, because you never let an algorithm decide who got shown what in the first place.
+
+So reading this paper, I kept turning the paper's own question back on itself: if Netflix already ran a legitimate, well-powered 9-arm A/B test, why build an entire counterfactual choice model on top of it at all? Isn't the experiment itself the incremental-value measurement?
+
+The honest answer, once I sat with it, is that the A/B test only tells you about the one specific manipulation you actually shipped to real users. It can't tell you what would've happened had the whole recommender been swapped for random or 2015-era matrix factorization — no one's approving a five-week degradation of a live product just to get that number. It can't decompose a topline lift into selection versus targeting; an experiment hands you the net effect, not the internal anatomy of why it happened. And it obviously can't price a title that doesn't exist yet. Those are the questions the paper actually needed answered, and none of them are reachable by A/B testing alone, however rigorous the test.
+
+That's what reframed this for me. I still don't think offline metrics should stand in for "does this beat what we have" — that question belongs to the experiment, full stop, and I've watched enough teams chase an offline metric that never quite tracked online lift to be wary of that substitution. But what Netflix built here isn't a replacement for the A/B test — it's a way to answer questions positioned *around* the experiment, and it only earns the right to be trusted because the experiment validated it first. The A/B test isn't competing with the model; it's the thing that gives the model its credibility. Maybe that's the real lesson for teams like the one I was on: stop looking for the one offline metric that will finally make experimentation unnecessary, and start asking what the experiment structurally cannot tell you — that's the only place an offline model earns its keep.
 
 ## The pattern worth taking away
 
