@@ -14,6 +14,7 @@ readTime: '13 mins'
 - Splitting the terms on paper doesn't automatically solve the hard part. The paper leans on an assumption called **conditional exogeneity**: once you condition on everything the algorithm used, whatever exposure variation is left over is close to random.
 - That assumption can't be checked from the training data itself, so they check it against a real 5-week, 9-arm A/B test using a **diversion ratio**. The model's offline predictions correlate with the live experiment at 0.86 (R² = 0.73).
 - Once trusted, the model shows the current RecSys beats simpler alternatives by up to 16% in engagement, without the catalog-concentration collapse those alternatives cause, and that most of a recommendation's power comes from **targeting** specific matches, not just showing up.
+- My own take, from running A/B tests on the personalization team at Target: a live experiment already answers "does this beat what we have," no assumptions required. Where a validated offline model like this earns its keep is on the questions an A/B test structurally can't answer, not as a substitute for the experiment.
 
 There's a version of this question every recommender-system team runs into eventually, whether they admit it or not: when a user watches something you recommended, how much of that was the recommendation, and how much was just them? They were probably going to watch a slasher movie tonight anyway. Did showing them Scream 2 actually change anything, or did it just happen to be standing next to a decision they'd already made?
 
