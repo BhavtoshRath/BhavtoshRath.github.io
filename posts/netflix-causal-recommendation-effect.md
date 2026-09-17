@@ -1,79 +1,123 @@
 ---
-title: 'Would You Have Watched It Anyway? Netflix''s Answer to Recommendation Causality'
+title: 'How Do You Know Your Recommender System Actually Works?'
 date: '2026-09-17'
-excerpt: 'A Netflix paper tackles a question every recsys team quietly avoids: when someone watches what you recommended, how much of that was you? Here''s how they built a model that can answer it.'
+excerpt: 'A recent Netflix paper separates taste from recommendation effect with a genuinely elegant piece of applied causal inference — and, more importantly, actually checks whether the separation is trustworthy against a live experiment.'
 author: 'Bhavtosh Rath'
 categories: ['Recommendation Systems', 'Causal Inference']
-readTime: '7 mins'
+readTime: '9 mins'
 ---
 
 ## TL;DR
 
-- The hard question in recommendation isn't "did they watch it," it's "would they have watched it anyway." A recent Netflix paper builds a model specifically to separate the two.
-- The trick is a utility score with two additive pieces: a **taste score** (what you'd want regardless of what's shown to you) and a **recommendation bonus** (the extra push from actually being surfaced). Same training data for both — the separation comes from model structure, not from filtering out "recommended" watches.
-- Taste itself turns out to be less personal than it sounds: the item embeddings and the history encoder are shared across all 2 million users in the training sample. "Your taste" is a population-level function applied to your specific watch sequence — which is just collaborative filtering wearing a transformer costume.
-- Because the two terms are additive, you can zero out the recommendation bonus for one title and re-run inference to see what would've happened without it — a clean counterfactual, computed after training.
-- They validated this against a real 5-week, 9-arm A/B test using something called a diversion ratio, got a 0.86 correlation between the model's predictions and the live experiment, and then used the validated model to show recommendations lift engagement by up to 16% over random ranking — mostly through targeting, not just exposure.
+- The hard question isn't "did the user watch what we recommended," it's "would they have watched it anyway." A recent Netflix paper builds a model specifically to separate the two.
+- The trick: an additive utility score with a **taste term** and a **recommendation-bonus term**, trained on all viewing data together — the separation comes from model structure, not from filtering out recommended watches.
+- Separating the terms doesn't automatically solve the hard part. The paper leans on an assumption — **conditional exogeneity** — that leftover exposure variation, after conditioning on everything the algorithm used, is close to random.
+- That assumption isn't verified from the training data itself. It's checked against a real 5-week, 9-arm A/B test using a **diversion ratio**, and the model's offline predictions correlate with the live experiment at 0.86 (R² = 0.73).
+- Once trusted, the model shows the current RecSys beats simpler alternatives by up to 16% in engagement, without the catalog-concentration collapse those alternatives cause — and that most of a recommendation's power comes from **targeting** specific non-obvious matches, not just exposure.
 
-Every recommender system team eventually runs into a version of this problem: a user watches something you recommended, and you want to take credit for it. But did the recommendation actually cause the watch, or was this person always going to find and watch that title regardless of what you showed them? Recommend things people already like — which is the whole job — and you guarantee the two explanations will look identical in the data. Exposure and taste are tangled together by design, not by accident.
+Here's a question that sounds simple until you try to actually answer it: when a user watches something Netflix recommended to them, how much of that decision was the recommendation, and how much was just... them? They were probably going to watch a slasher movie tonight anyway — did the recommendation actually change anything, or did it just happen to be standing next to a decision the user had already made?
 
-A recent Netflix paper, [The Value of Personalized Recommendations: Evidence from Netflix](https://arxiv.org/abs/2511.07280), takes this on directly. What I found genuinely clever isn't the headline results — it's the modeling trick that makes the whole exercise possible. So this post is mostly about that trick.
+That's the central problem a recent Netflix paper, [The Value of Personalized Recommendations: Evidence from Netflix](https://arxiv.org/abs/2511.07280), sets out to solve. The way they solve it is a genuinely elegant piece of applied causal inference, and it's worth understanding in detail — the same bottleneck shows up in some form in every recommender system evaluation, whether or not the team building it realizes it.
 
-## One model, two separate questions
+## The core equation
 
-The core equation looks almost too simple:
+Everything in this paper builds on one formula — the utility score, representing how much a specific user wants a specific title at a specific moment:
 
 ```
 u_ijt = taste_score_ij + rec_bonus_ijt + noise
 ```
 
-That's the utility user `i` gets from title `j` at time `t`. It's built from a transformer that looks at a user's watch history and predicts the probability they watch each title. On the surface that sounds like a recommender model, full stop. But the authors are careful to point out they're answering two separate questions with it: given what was shown and what this person has watched before, what's the probability they watch each title — and of that probability, how much comes from intrinsic taste versus the extra boost of literally being recommended? Structuring the model this way is what lets you later simulate "what if this title had never been recommended to this person at all."
+Three ingredients: a **taste score** (how much this user would want this title, independent of whether it was ever recommended), a **recommendation bonus** (the extra push from the title actually being shown to them), and **noise** (everything else the model can't capture — mood, whim, a text from a friend). The whole paper is really about computing the first two terms separately, and why keeping them separate is what makes everything else possible.
 
-## Step 1: Taste, modeled without filtering anything out
+They built a transformer-based model that looks at a user's watch history and predicts their probability of watching each title. It's tempting to call this a recommender model — it has the right ingredients, learned embeddings, attention over sequences — but that's not what it is. It never decides what gets shown to anyone. It answers two distinct questions: given what was shown to this user and their history, what's the probability they watch each title? And separately, how much of that probability is driven by intrinsic taste versus the extra boost from actually being recommended? The real Netflix RecSys — the thing that actually populates your homepage — stays a black box throughout. This model exists purely to measure and simulate, not to serve.
 
-Here's the part that surprised me. To estimate taste, the model isn't trained on some clean subset of "organic" viewing with recommendation effects stripped out — it's trained on all viewing data, recommended and unrecommended alike. Taste gets isolated by structure, not by data curation: there's a separate additive term dedicated to "was this recommended," so whatever watch behavior that term can explain gets absorbed into it, leaving the taste component to represent what a user would want independent of what was actually shown to them.
+## Step 1: Modeling taste
 
-Taste itself comes from two embeddings combining into a scalar:
+To estimate taste, the model isn't trained on some filtered subset of "organic" engagement that excludes recommendation influence — it's trained on all viewing data, recommended and unrecommended alike. Taste gets isolated by structure, not by filtering the data: there's a separate additive term specifically for "was this recommended," so any watch behavior explained by exposure gets absorbed into that term (Step 2), leaving the taste component to represent what a user would want independent of what was shown to them.
+
+Concretely, taste comes from two embeddings combining into a single scalar score. `B_j` is a d-dimensional embedding for each title, representing its learned "characteristics" — fixed per title, though updated during training. `A_it` is a d-dimensional embedding for user `i` at a specific time `t`, representing their current preferences, and it shifts as the user watches more, modeling that taste evolves over time — again, independent of recommendation influence. Their dot product gives the taste score:
 
 ```
 taste_score_ij = A_it · B_j^T
 ```
 
-`B_j` is a learned embedding for title `j` — its characteristics, fixed per title but updated during training. `A_it` is an embedding for user `i` at time `t`, representing their current preferences, which shifts as they watch more (taste evolves). The dot product of the two is the taste score.
+A confusion I had, and one worth naming, was whether these embeddings were really individualized — given they're trained on a random sample of 2 million users. Turns out the answer is no, not entirely. Only your specific watch sequence is individual. The item embeddings (`B_j`) and the history-encoder function that turns your sequence into a taste vector are both shared, learned jointly across the full 2 million users. So "your taste," as the model represents it, is really a population-level function applied to an individual input — which is nothing but a collaborative filtering problem wearing a sequence-model costume.
 
-Simple idea, but it made me stop and think about something I'd been sloppy about: are these embeddings actually individualized? The training sample is 2 million users, and the honest answer is *not entirely*. Your specific watch sequence is individual to you. But the item embeddings (`B_j`) and the history-encoder function that turns any sequence into a taste vector are shared, learned jointly across all 2 million people. So "your taste," as the model represents it, is a population-level function applied to your particular input. That's collaborative filtering, just described in transformer language instead of matrix-factorization language.
+## Step 2: Modeling the recommendation bonus
 
-## Step 2: The recommendation bonus, kept strictly separate
-
-The second term captures "you watched it because it was recommended," independent of taste. For each zone a title could appear in — billboard, top 25, top 100 — there's a binary flag (shown in that zone or not) multiplied by a zone-specific learned weight, and a title can trigger more than one zone at once:
+Now the second term, capturing "you watched it because it was recommended," kept deliberately separate from taste. For each zone a title could appear in — billboard, top 25, top 100 — there's a binary flag (1 if the title shows up in that zone, 0 if not), multiplied by a zone-specific learned weight. A title can trigger more than one zone flag at once, since top 25 titles are also part of top 100 by definition.
 
 ```
 rec_bonus_ijt = Σ β_jr · 1{j ∈ C_irt}
 ```
 
-Add that to the taste score and you get the full utility, which then goes through the standard training loop — softmax over the whole catalog to get a probability distribution, likelihood against what people actually watched, backprop nudging the history encoder, item embeddings, and recommendation weights closer to reality, batch after batch until it converges. Nothing exotic in the training itself. What's clever is upstream of that: keeping taste and recommendation-effect as two separate additive terms is exactly what makes it possible to switch one of them off later and see what changes.
+All these zone bonuses get added to the taste score to form the final utility:
 
-## Step 3: Running inference twice, on the same person
+```
+u_ijt = A_it · B_j^T + Σ β_jr · 1{j ∈ C_irt} + noise
+```
 
-This is where the design pays off. Pick a specific user, a specific moment, and a specific title. Run inference once with that title's recommendation bonus included, and once with it zeroed out — everything else about that person's utilities held fixed. Each run still requires computing utilities for the *entire* catalog, not just the target title, because softmax produces relative probabilities across every available option, not an isolated score. Flipping one flag technically only touches the recommendation-bonus term for that one title, but because softmax normalizes over everything, that single change ripples through and shifts every other title's probability slightly too.
+The noise term represents everything influencing a user's choice that the model doesn't capture — and statistically, it's a Type-1 Extreme Value assumption, which is precisely what makes softmax the "correct" way to turn utilities into probabilities. That's a classic McFadden discrete-choice result, not something the authors invented; it's the standard justification for using softmax in choice modeling at all.
 
-The difference between the two runs — probability with the bonus minus probability without it — is the model's estimate of the causal effect of that recommendation, for that user, for that title, at that moment. It's a counterfactual computed entirely after training, which is the whole point of building the model this way in the first place.
+This additive structure is the clever bit. Taste and recommendation-effect stay as two separate terms rather than one blended number, which is exactly what lets them later "switch off" the recommendation bonus for a specific user/title pair and simulate what would've happened without it.
 
-## Step 4: Checking the model against reality
+From here, it's back to the normal training grind. Nothing exotic: softmax turns utility scores into a probability distribution over every title in the catalog, the likelihood checks those probabilities against what people actually watched, backprop nudges every parameter — the history encoder behind `A_it`, the item embeddings `B_j`, the recommendation bonuses `β_jr` — a little closer to reality, and this repeats, batch after batch, until it converges.
 
-A model that can produce convenient counterfactuals is only useful if you trust it, so the paper validates it against an actual randomized experiment — 5 weeks, roughly a million users per arm, 9 arms total (1 control, 8 treatment). Control gets real, unmodified recommendations. Each treatment arm is tied to one focal category (scripted content, non-English titles, TV series, and so on) — a random subset of non-focal titles that would normally have been shown gets swapped out for focal-category titles instead. It's a deliberate, human-decided rule, with zero involvement from the model itself.
+## Step 3: The identification problem
 
-From that experiment you can compute a **diversion ratio**. Say Scream gets watched by 2% of users in control, and in a treatment arm that boosts Scream 2, Scream's viewership drops to 1.5% among treatment users. That's a 0.5-point gap. Diversion ratio asks where that gap went: how much reappears as extra viewership of Scream 2, how much scatters across the rest of the catalog, and how much shows up as people just watching nothing.
+Here's the actual hard problem, and it's worth being honest that Steps 1 and 2 don't solve it on their own. When someone watches something that was recommended to them, we can't directly tell how much came from intrinsic taste versus the causal effect of being recommended. Since the real RecSys tends to recommend things it already predicts people will like, exposure and taste are naturally tangled together in the raw data. Training a model with two separate additive terms doesn't automatically untangle this — the model still has to correctly assign credit between the two, and nothing forces it to do so honestly.
 
-You can compute the same quantity from the model directly — run it once on a user's real recommendation flags for the control baseline, then flip the flags (Scream off, Scream 2 on) and run it again for the treatment prediction, and the difference in outputs gives you the model's predicted diversion ratio. Line up the model's predictions against the live experiment's actual results across all arms and titles, and you get a 0.86 correlation and 0.73 R². That's strong enough to treat the model as trustworthy for questions the live experiment was never designed to answer directly.
+Their answer is an assumption called **conditional exogeneity**: once you condition on everything the RecSys itself used to decide who gets shown what — user history, item features, state — whatever exposure variation is left over is close to random, not driven by hidden taste differences. Compare two users who look identical to the algorithm; if one happened to get a title recommended and the other didn't, for essentially incidental reasons like routine exploration or tie-breaking, any difference in their watching behavior can be attributed to the recommendation itself rather than to some taste gap the algorithm secretly detected.
 
-## Step 5: What the validated model is actually for
+Once trained, this is exactly what lets them run a clean thought experiment. Take a specific user at a specific moment, and a specific title. Run the model's inference twice: once with that title's recommendation bonus included in its utility score, and once with it zeroed out, keeping every other title's taste score and utility unchanged. Each run requires computing utility scores for every title in the catalog, not just the target one, because softmax needs the whole set of utilities to produce a valid probability distribution — probability is inherently relative to every other option available, never computed in isolation. So each run produces a full probability distribution across the entire ~7,000-title catalog (plus the outside option, for "watched nothing"), and from that distribution you pull out the one number for your target title. The difference between the two — with the bonus, and without — is the estimated causal effect of the recommendation, for that specific user and title.
 
-Once trusted, the model gets used to answer the questions that mattered from the start. Swap the current recommender for random, popularity-based, or matrix-factorization alternatives, and engagement drops by 16%, 12%, and 4% respectively. Decompose *why* recommendations drive extra watching, and it splits into selection (51.3%), exposure (6.8%), and targeting (41.9%) — targeting turns out to matter most, especially for mid-popularity titles that wouldn't otherwise surface on their own. And by extending the model with pre-tagged embeddings for titles that haven't been released yet, you can estimate incremental value before a single person has watched them, which is directly useful for catalog investment decisions.
+This is only trustworthy if the conditional exogeneity assumption actually holds, and that's not something you can verify from the same data you used to fit the model. So they go check.
 
-## Why this is worth sitting with
+## Step 4: Validating it against a real experiment
 
-The thing I keep coming back to is how unglamorous the actual solution is. No new causal-inference machinery, no instrumental variables, no clever natural experiment to lean on. Just a utility function split into two additive terms, trained on ordinary data, validated the honest way — against a real experiment, not just internal consistency checks. That combination of "sober about what it can claim" and "actually usable for decisions" is rarer than it should be in this kind of work.
+This is where the paper stops asking you to trust an assumption and goes and tests it.
+
+The setup is different from a standard A/B test. It runs for 5 weeks, with roughly 1 million users per arm, across 9 arms total — 1 control plus 8 treatment arms. Control is real, unmodified recommendations, completely separate from anything the model generates. Each of the 8 treatment arms is tied to a single focal category — scripted vs. unscripted content, language, film vs. TV series, and others. When a user lands in a category's treatment arm, that category gets shown somewhat more than usual; it's a rebalancing, not a takeover. The paper's own description: "we substitute impressions of a random subset of goods not in the focal category for impressions of goods in the focal category." Mechanically, take a random subset of non-focal titles that would normally have been shown, and swap those specific impression slots for focal-category titles instead.
+
+Worth being explicit about something easy to miss: the model's outputs are not used to decide what gets shown in this A/B test. The treatment arms are built from a simple, deliberate rule decided by the researchers — boost category X, dilute some titles not in X — with zero involvement from the transformer/choice model. This separation matters, because it's what makes the validation non-circular.
+
+From this, they compute a **diversion ratio**: comparing the treatment population to the control population (two different, but randomly equivalent, groups of users), how much lower is a diluted title's viewership in the treatment arm — and of that gap, what fraction reappears as higher viewership of a boosted substitute, what fraction shows up elsewhere in the catalog, and what fraction shows up as more people choosing the outside option, watching nothing at all?
+
+**A concrete example.** Suppose in the control arm, Scream is shown normally and 2% of control users watch it. In a treatment arm where Scream 2 gets boosted, only 1.5% of treatment users watch Scream — a 0.5 percentage-point drop, comparing two different, randomly-equivalent populations (nobody's individual behavior is tracked before/after; these are two separate groups of roughly a million users each). Diversion ratio decomposes that gap: what fraction reappears as increased viewership of Scream 2, what fraction reappears spread across other titles, and what fraction reappears as more people choosing not to watch anything.
+
+**D^EMPIRICAL vs. D^MODEL.** The real, observed diversion ratio — call it D^EMPIRICAL — is model-free. It's ground truth, computed purely from what actually happened. Separately, they compute D^MODEL: what the trained model predicts would happen under the same manipulation, computed entirely offline. Here's how. The model produces a probability for every title in the catalog plus the outside option — a full distribution of ~7,001 numbers summing to 1. Running this once on a user's real, unmodified recommendation flags gives the control baseline: P_control(Scream), P_control(Scream2), and so on. To simulate the treatment arm, they manually edit that user's flags — if Scream's flag was 1, flip it to 0; if Scream 2's flag was 0, flip it to 1 — and run the model again to get P_treatment(Scream), P_treatment(Scream2).
+
+Mechanically, flipping a flag only changes the recommendation bonus term inside that title's utility score — taste stays untouched. But because softmax normalizes across the entire catalog, that one change ripples through and shifts every title's probability slightly, not just the two flags you touched. Nothing here involves backpropagation or learning; the model is fully trained and frozen by this point. It's just arithmetic — plugging a different input into an already-fixed formula and reading off a different output. The difference between the two runs feeds into the diversion ratio formula to produce D^MODEL.
+
+**The check that matters.** Finally, correlate D^MODEL against D^EMPIRICAL, across all 8 treatment arms and their titles. They found a strong relationship: 0.86 correlation, 0.73 R². That's the whole point of Step 4. Diversion ratio isn't used as an ongoing metric throughout the paper — it's used once, as a validation gate. If the model's offline predictions hadn't matched the real experiment, that would've been evidence the conditional exogeneity assumption from Step 3 was shaky, and everything built on top of `β_jr` would be suspect. Because it did match reasonably well, the model earns the right to be trusted for things that simply can't be tested with a live A/B test.
+
+It's worth sitting with the honesty of that 0.73 R² rather than rounding it up to "solved." About 27% of the variance in real diversion ratios isn't explained by the model — strong enough to trust the model's broad conclusions, not strong enough to treat every fine-grained downstream number as exact.
+
+## Step 5: So what?
+
+Once validated, the model gets pointed at the questions the paper actually cares about.
+
+**What is the current RecSys worth?** They simulate replacing it entirely with three alternatives — random recommendations, popularity-based recommendations, and a 2015-era matrix factorization approach — and measure the resulting change in engagement and catalog concentration (HHI):
+
+| Alternative algorithm | Engagement change | Concentration (HHI) change |
+| --- | --- | --- |
+| Random | −16% | −2.5% |
+| Popularity-based | −12% | +42.5% |
+| Matrix factorization | −4% | +37.5% |
+
+The engagement drops tell a clear ordering: the sophistication of personalization matters, and matters a lot. But the concentration numbers are the more interesting story. Popularity-based and matrix-factorization recommendations don't just lose engagement — the engagement that remains gets squeezed onto a much narrower slice of the catalog. Consumption that used to spread across thousands of titles starts piling up on a handful of already-popular ones. The current RecSys's real achievement isn't just "more engagement" — it's more engagement without falling into that concentration trap.
+
+**Why do recommendations actually work?** For any given title, they split the gap between "a targeted user, recommended" and "an average user, not recommended" into three components: **selection** (51.3%) — targeted users already had higher baseline taste for this title, the algorithm just found the right people; **exposure** (6.8%) — the plain mechanical effect of a title simply showing up anywhere, for anyone; and **targeting** (41.9%) — the extra responsiveness specifically among targeted users, beyond what taste and generic exposure alone would predict.
+
+Targeting is nearly 7x larger than exposure alone, and it matters most for mid-popularity titles, not the biggest hits (broad appeal makes them find their audience regardless) and not the nichest niche (too small a signal to target well). This is arguably the paper's sharpest finding: the value of a sophisticated RecSys isn't mostly about showing things to people — it's about finding specific, non-obvious matches and responding to them disproportionately.
+
+**What about titles that don't exist yet?** For catalog and content investment decisions, you need to estimate the incremental value of a title before it's released — and the endogenously-learned embeddings from Steps 1–4 can't do that, since they're learned from consumption data a new title doesn't have yet. So they extend the model with exogenous, pre-tagged embeddings — built from human tags and observable characteristics — that can represent titles that were never on the platform at all, trading a bit of predictive accuracy for the ability to reason about content that doesn't exist yet.
+
+## The pattern worth taking away
+
+Strip away the Netflix specifics, and what's left is a template worth generalizing: separate the effect you care about into its own additive term, find a source of variation you can argue is close to random, and then go verify that argument against something you didn't have to assume — a real, controlled experiment.
+
+A lot of causal recsys evaluation skips that last part. It's easy to build a model with a taste term and a recommendation-effect term, call the second one "causal," and never check whether the assumption that makes it causal actually holds. The diversion-ratio validation in this paper is the discipline that a lot of practitioner writeups quietly leave out — and it's the difference between "we built a model that produces a number" and "we have evidence this number means what we think it means."
 
 ---
 
