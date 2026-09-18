@@ -108,9 +108,6 @@ export default function AboutPage() {
       {/* Contact Section */}
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 gradient-text">Get in Touch</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I&apos;m always interested in collaborating on innovative projects and research opportunities.
-        </p>
         <div className="flex justify-center space-x-6">
           <a 
             href="https://github.com/BhavtoshRath" 
