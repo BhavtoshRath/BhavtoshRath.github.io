@@ -7,6 +7,14 @@ categories: ['Personalization', 'Recommendation Systems']
 readTime: '6 mins'
 ---
 
+## TL;DR
+
+- A recommendation model trained on millions of users has no weights that belong to any one person. In the training sense, it isn't personalized at all.
+- Personalization mostly happens at inference time. The shared model is a function, and your embedding, recent activity and context are its inputs, so the output is specific to you.
+- The catch is that even your embedding is described in the crowd's vocabulary. Unusual tastes get rounded toward your nearest neighbors, and new users get the population default.
+- That makes it worth asking whether a system personalizes to a person or just to a very fine-grained type of person.
+- Personalization can live in the model (per-user weights), the input (your features) or the prediction (how differently the output behaves for you). Most production systems personalize the input and the prediction, not the model.
+
 An interviewer asked me this question recently: if your recommendation model was trained on the clicks of millions of people, in what sense is it personalized to an individual?
 
 It caught me off guard, but it pointed at something worth thinking about. We call ML models trained on huge volumes of data "personalized." Yet not one weight in the model truly belongs to any individual. Every number it learned was shaped by millions of other users. So where, exactly, is the "you" in a personalized model?
