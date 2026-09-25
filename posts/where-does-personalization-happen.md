@@ -78,3 +78,8 @@ And the reverse can be true. A model fine-tuned on one person's data could still
 The original question assumed (and I did too early in my career) that personalization has to live inside the model. In practice, it mostly doesn't. It lives in the meeting point between shared knowledge and individual context. The crowd teaches the model how people tend to behave; your data tells it which of those patterns apply to you.
 
 So I'll leave you with the question I keep coming back to: should we call a system personalized because of how it was trained or because of how differently it behaves for you than for anyone else?
+
+## References
+
+- Li et al., ["Leave No User Behind: Towards Improving the Utility of Recommender Systems for Non-mainstream Users"](https://arxiv.org/abs/2102.01744) (WSDM 2021)
+- Zhu & Caverlee, ["Fighting Mainstream Bias in Recommender Systems via Local Fine Tuning"](https://dl.acm.org/doi/10.1145/3488560.3498427) (WSDM 2022)
